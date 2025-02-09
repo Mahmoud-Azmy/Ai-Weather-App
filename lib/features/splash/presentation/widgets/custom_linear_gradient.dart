@@ -14,7 +14,8 @@ class CustomLinearGradient extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: [
             Colors.transparent,
-            Colors.black.withOpacity(0.7),
+            Colors.black.withAlpha(
+                (0.7 * 255).round()), // Convert opacity to alpha value
             Colors.black,
           ],
           stops: const [0.3, 0.5, .9],
