@@ -1,8 +1,7 @@
 import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/app_router.dart';
 import 'package:ai_weather_app/core/utils/app_styles.dart';
-import 'package:ai_weather_app/core/widgets/custom_material_button.dart';
-import 'package:ai_weather_app/features/splash/presentation/widgets/custom_linear_gradient.dart';
+import 'package:ai_weather_app/features/splash/presentation/widgets/custom_material_button.dart';
 import 'package:ai_weather_app/features/splash/presentation/widgets/splash_background_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -37,7 +36,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       body: Stack(
         children: [
           SplashBackgroundImage(),
-          CustomLinearGradient(),
+          // CustomLinearGradient(),
           Positioned(
             bottom: 40,
             right: 20,
@@ -82,7 +81,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
   void navigateToRegisterView() {
     Future.delayed(
-      const Duration(seconds: 4),
+      const Duration(seconds: 5),
       () {
         if (mounted) {
           GoRouter.of(context).pushReplacement(AppRouter.registerView);
