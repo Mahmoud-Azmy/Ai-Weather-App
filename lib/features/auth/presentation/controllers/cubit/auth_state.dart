@@ -15,13 +15,3 @@ class ChangePasswordVisibility extends AuthState {
   @override
   List<Object> get props => [isVisible];
 }
-
-class AuthValidationError extends AuthState {
-  final String? emailError;
-  final String? passwordError;
-
-  AuthValidationError({this.emailError, this.passwordError});
-
-  @override
-  List<Object> get props => [emailError ?? '', passwordError ?? ''];
-}
