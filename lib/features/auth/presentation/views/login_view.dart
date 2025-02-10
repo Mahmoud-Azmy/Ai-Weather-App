@@ -1,6 +1,5 @@
 import 'package:ai_weather_app/core/utils/app_colors.dart';
 import 'package:ai_weather_app/core/utils/app_consts.dart';
-import 'package:ai_weather_app/core/utils/app_router.dart';
 import 'package:ai_weather_app/core/utils/app_styles.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_button.dart';
@@ -9,8 +8,8 @@ import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_fo
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class RegisterView extends StatelessWidget {
-  const RegisterView({super.key});
+class LoginView extends StatelessWidget {
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,30 +23,24 @@ class RegisterView extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(30),
+          padding: const EdgeInsets.all(24),
           child: Center(
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    AppConsts.signUpText,
+                    AppConsts.signInText,
                     style: AppStyles.textStyle50,
                   ),
                   Text(
-                    AppConsts.createAcountText.toUpperCase(),
+                    AppConsts.loginToAcountText.toUpperCase(),
                     textAlign: TextAlign.center,
                     style:
                         AppStyles.textStyle14.copyWith(color: Colors.white54),
                   ),
                   SizedBox(
-                    height: 30,
-                  ),
-                  CustomTextFormFieldType(
-                    text: AppConsts.fullNameText,
-                  ),
-                  CustomTextFormField(
-                    icon: Icons.person_outline_rounded,
+                    height: 40,
                   ),
                   CustomTextFormFieldType(
                     text: AppConsts.emailText,
@@ -59,18 +52,25 @@ class RegisterView extends StatelessWidget {
                   CustomTextFormFieldType(
                     text: AppConsts.passwordText,
                   ),
-                  CustomTextFormField(isPassword: true, icon: Icons.lock),
+                  CustomTextFormField(
+                    isPassword: true,
+                    icon: Icons.lock,
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: CustomTextButton(text: AppConsts.forgetPassText),
+                  ),
                   SizedBox(
-                    height: 40,
+                    height: 20,
                   ),
                   CustomButton(
                     onPressed: () {},
-                    text: AppConsts.signUpText,
+                    text: AppConsts.signInText,
                   ),
                   CustomTextButton(
-                    text: AppConsts.haveAnAcountText,
+                    text: AppConsts.notHaveAnAcountText,
                     onPressed: () {
-                      GoRouter.of(context).push(AppRouter.loginView);
+                      GoRouter.of(context).pop();
                     },
                   )
                 ],
