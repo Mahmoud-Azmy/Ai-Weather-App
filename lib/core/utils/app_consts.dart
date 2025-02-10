@@ -13,4 +13,5 @@ class AppConsts {
   static const String createAcountText =
       'create an acount to know the weather status';
   static const String loginToAcountText = 'login to know the weather status';
+  static const String knowTheWeatherText = 'Know the \nWeather Status';
 }

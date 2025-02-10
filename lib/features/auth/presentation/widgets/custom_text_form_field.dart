@@ -9,10 +9,18 @@ class CustomTextFormField extends StatelessWidget {
     this.isPassword = false,
     this.keyboardType,
     this.icon,
+    required this.controller,
+    this.onSaved,
+    this.validator,
   });
+
   final bool isPassword;
   final TextInputType? keyboardType;
   final IconData? icon;
+  final TextEditingController controller;
+
+  final void Function(String?)? onSaved;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +32,8 @@ class CustomTextFormField extends StatelessWidget {
         return TextFormField(
           keyboardType: keyboardType,
           obscureText: isObscured,
+          onSaved: onSaved,
+          validator: validator,
           decoration: InputDecoration(
             prefixIcon: Padding(
               padding: const EdgeInsets.only(
