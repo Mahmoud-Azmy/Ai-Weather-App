@@ -12,7 +12,7 @@ class SplashBackgroundImage extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(AppAssets.splashImage),
+          image: AssetImage(AppAssets.splashBackgroundImage),
           fit: BoxFit.cover,
           alignment: Alignment.topCenter,
         ),
