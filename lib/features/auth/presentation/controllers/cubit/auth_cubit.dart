@@ -23,17 +23,17 @@ class AuthCubit extends Cubit<AuthState> {
   void loginUser(UserEntity user) async {
     emit(LoginLoadingState());
     var result = await loginUserUseCase.call(user);
-    result.fold((l) => emit(LoginErrorState(l.toString())),
-        (r) => emit(LoginSuccessState(r)));
+    result.fold(
+      (l) => emit(LoginErrorState(l.errorMessage)),
+      (r) => emit(LoginSuccessState(r)),
+    );
   }
 
   void signUpUser(UserEntity user) async {
     emit((SignUpLoadingState()));
     var result = await signUpUserUseCase.call(user);
     result.fold(
-      (l) => emit(
-        SignUpErrorState(l.toString()),
-      ),
+      (l) => emit(SignUpErrorState(l.errorMessage)),
       (r) => emit(SignUpSuccessState(r)),
     );
   }

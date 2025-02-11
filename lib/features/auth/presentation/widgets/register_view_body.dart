@@ -2,14 +2,11 @@ import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/app_router.dart';
 import 'package:ai_weather_app/core/utils/app_styles.dart';
 import 'package:ai_weather_app/core/utils/validators.dart';
-import 'package:ai_weather_app/features/auth/domain/entities/user_entity.dart';
-import 'package:ai_weather_app/features/auth/presentation/controllers/cubit/auth_cubit.dart';
-import 'package:ai_weather_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_button.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_field_type.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_form_field.dart';
+import 'package:ai_weather_app/features/auth/presentation/widgets/register_bitton_bloc_consumer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class RegisterViewBody extends StatefulWidget {
@@ -92,43 +89,11 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
               SizedBox(
                 height: 40,
               ),
-              BlocConsumer<AuthCubit, AuthState>(
-                listener: (context, state) {
-                  if (state is SignUpErrorState) {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text(state.message)));
-                  }
-                  if (state is SignUpSuccessState) {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text(state.message)));
-                    GoRouter.of(context).pushReplacement(AppRouter.loginView);
-                  }
-                },
-                builder: (context, state) {
-                  return CustomButton(
-                    child: state is SignUpLoadingState
-                        ? CircularProgressIndicator(
-                            color: Colors.white,
-                          )
-                        : Text(AppConsts.signUpText,
-                            style: AppStyles.textStyle22),
-                    onPressed: () {
-                      final isValid = _formKey.currentState!.validate();
-                      if (!isValid) {
-                        return;
-                      } else {
-                        _formKey.currentState!.save();
-                        BlocProvider.of<AuthCubit>(context).signUpUser(
-                          UserEntity(
-                              name: nameController.text,
-                              email: emailController.text,
-                              password: passwordController.text),
-                        );
-                      }
-                    },
-                  );
-                },
-              ),
+              RegisterButtonBlocConsumer(
+                  formKey: _formKey,
+                  nameController: nameController,
+                  emailController: emailController,
+                  passwordController: passwordController),
               CustomTextButton(
                 text: AppConsts.haveAnAcountText,
                 onPressed: () {
