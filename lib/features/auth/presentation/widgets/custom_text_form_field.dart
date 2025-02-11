@@ -10,7 +10,7 @@ class CustomTextFormField extends StatelessWidget {
     this.keyboardType,
     this.icon,
     required this.controller,
-    this.onSaved,
+    this.onChanged,
     this.validator,
   });
 
@@ -19,7 +19,7 @@ class CustomTextFormField extends StatelessWidget {
   final IconData? icon;
   final TextEditingController controller;
 
-  final void Function(String?)? onSaved;
+  final void Function(String?)? onChanged;
   final String? Function(String?)? validator;
 
   @override
@@ -32,7 +32,7 @@ class CustomTextFormField extends StatelessWidget {
         return TextFormField(
           keyboardType: keyboardType,
           obscureText: isObscured,
-          onSaved: onSaved,
+          onSaved: onChanged,
           validator: validator,
           decoration: InputDecoration(
             prefixIcon: Padding(
