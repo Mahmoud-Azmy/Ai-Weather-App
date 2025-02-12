@@ -1,4 +1,5 @@
 import 'package:ai_weather_app/core/errors/firebase_errors.dart';
+import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/features/auth/data/models/auth_user_model.dart';
 import 'package:ai_weather_app/features/auth/data/sources/remote_data_source.dart';
 import 'package:ai_weather_app/features/auth/domain/entities/user_entity.dart';
@@ -18,8 +19,8 @@ class AuthUserRepoImpl extends BaseAuthUserRepo {
         email: user.email,
         password: user.password,
       );
-      await remoteDataSource.loginUseUser(userModel);
-      return Right('User signed in successfully');
+      var token = await remoteDataSource.loginUseUser(userModel);
+      return Right(token);
     } on FirebaseAuthException catch (e) {
       return Left(
         ServerFailure.fromFirebaseException(e),
@@ -40,7 +41,7 @@ class AuthUserRepoImpl extends BaseAuthUserRepo {
         password: user.password,
       );
       await remoteDataSource.signUpUseUser(userModel);
-      return Right('User created successfully');
+      return Right(AppConsts.successMessageSignUp);
     } on FirebaseAuthException catch (e) {
       return Left(
         ServerFailure.fromFirebaseException(e),

@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class RemoteDataSource {
-  Future<void> loginUseUser(UserModel user);
+  Future<String> loginUseUser(UserModel user);
   Future<void> signUpUseUser(UserModel user);
 }
 
@@ -13,11 +13,13 @@ class RemoteDataSourceImpl implements RemoteDataSource {
 
   RemoteDataSourceImpl(this._firebaseAuth, this._firestore);
   @override
-  Future<void> loginUseUser(UserModel user) async {
-    await _firebaseAuth.signInWithEmailAndPassword(
+  Future<String> loginUseUser(UserModel user) async {
+    final userCredential = await _firebaseAuth.signInWithEmailAndPassword(
       email: user.email,
       password: user.password,
     );
+    final idToken = await userCredential.user!.getIdToken();
+    return idToken ?? '';
   }
 
   @override

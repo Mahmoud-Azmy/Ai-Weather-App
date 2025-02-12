@@ -5,10 +5,13 @@ import 'package:ai_weather_app/features/auth/domain/usecases/sign_up_user_use_ca
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-final sl = GetIt.instance; // sl = service locator
+final sl = GetIt.instance;
 
-void setupLocator() {
+Future<void> setupLocator() async {
+  final prefs = await SharedPreferences.getInstance();
+  sl.registerSingleton<SharedPreferences>(prefs);
   // Firebase Services
   sl.registerLazySingleton(() => FirebaseAuth.instance);
   sl.registerLazySingleton(() => FirebaseFirestore.instance);

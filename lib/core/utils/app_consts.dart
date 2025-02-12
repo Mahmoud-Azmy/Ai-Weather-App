@@ -1,4 +1,5 @@
 class AppConsts {
+  static const String kToken = 'token';
   static const String kPilatExtended = 'Pilat Extended';
   static const String appName = 'AI Weather App';
   static const String skipButton = 'Skip';
@@ -14,4 +15,6 @@ class AppConsts {
       'create an acount to know the weather status';
   static const String loginToAcountText = 'login to know the weather status';
   static const String knowTheWeatherText = 'Know the \nWeather Status';
+  static const String successMessage = 'User signed in successfully';
+  static const String successMessageSignUp = 'User created successfully';
 }
