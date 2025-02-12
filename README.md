@@ -10,18 +10,22 @@ AI-Weather-App is a Flutter-based mobile application that provides real-time wea
 - 🌍 **Real-time Weather Updates**
 - 🎨 **Beautiful UI with Splash Screen**
 - 📍 **Location-based Weather**
-- 🔄 **Refresh & Dynamic UI Updates**
+- 🛍️ **Refresh & Dynamic UI Updates**
 - 🌙 **Dark & Light Mode Support** (if available)
+
+  
+## - 🔑 **User Authentication**  Task 1
+## 📸 Screenshots
 
 ## 📸 Screenshots
 
-| Splash Screen                     | Sign Up                            | Login                           | Password Reset                           |
-| --------------------------------- | ---------------------------------- | ------------------------------- | ---------------------------------------- |
-| ![Splash](![1739344180794](https://github.com/user-attachments/assets/5a9aae25-4723-4203-b599-d006e0686fdb)
-) | ![Sign Up](![1739344180786](https://github.com/user-attachments/assets/e9dab1a7-b596-4a6f-857e-7e6692a448ee)
-) | ![Login](![1739344180779](https://github.com/user-attachments/assets/5fe11838-ff40-4949-8dd2-0b93dde0aa2c)
-) | ![Password Reset](![1739344180771](https://github.com/user-attachments/assets/f3a8d867-8b47-4771-a889-2bfb6e97dc74)
-) |
+| Feature | Screenshot |
+|---------|------------|
+| **Splash Screen** | <img src="https://github.com/user-attachments/assets/5a9aae25-4723-4203-b599-d006e0686fdb" width="250" height="500"> |
+| **Sign Up** | <img src="https://github.com/user-attachments/assets/e9dab1a7-b596-4a6f-857e-7e6692a448ee" width="250" height="500"> |
+| **Login** | <img src="https://github.com/user-attachments/assets/5fe11838-ff40-4949-8dd2-0b93dde0aa2c" width="250" height="500"> |
+| **Password Reset** | <img src="https://github.com/user-attachments/assets/f3a8d867-8b47-4771-a889-2bfb6e97dc74" width="250" height="500"> |
+
 
 ## 🚀 Installation
 
@@ -56,10 +60,15 @@ Contributions are welcome! To contribute:
 3. Commit your changes.
 4. Push to your fork and submit a pull request.
 
-## 📧 Contact
+## 🐜 License
+
+This project is licensed under the MIT License. Feel free to use and modify it as needed.
+
+## 💎 Contact
 
 For any inquiries, reach out via [LinkedIn](https://www.linkedin.com/in/mahmoud-azmy46/) or email at [mahmoud.azmyali1902@gmail.com](mailto:mahmoud.azmyali1902@gmail.com).
 
 ---
 
 🚀 Developed by **Mahmoud Azmy**
+
