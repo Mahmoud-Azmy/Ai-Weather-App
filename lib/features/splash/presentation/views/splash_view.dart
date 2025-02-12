@@ -53,8 +53,8 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
               return SlideTransition(
                 position: _animation,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Know the \nWeather Status',
+                  padding: const EdgeInsets.only(left: 24, top: 10),
+                  child: Text(AppConsts.knowTheWeatherText,
                       style: AppStyles.textStyle40),
                 ),
               );
