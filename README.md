@@ -17,7 +17,8 @@ AI-Weather-App is a Flutter-based mobile application that provides real-time wea
 
 | Splash Screen                     | Sign Up                            | Login                           | Password Reset                           |
 | --------------------------------- | ---------------------------------- | ------------------------------- | ---------------------------------------- |
-| ![Splash](screenshots/splash.png) | ![Sign Up](screenshots/signup.png) | ![Login](screenshots/login.png) | ![Password Reset](screenshots/reset.png) |
+| ![Splash](![1739344180794](https://github.com/user-attachments/assets/5a9aae25-4723-4203-b599-d006e0686fdb)
+) | ![Sign Up](screenshots/signup.png) | ![Login](screenshots/login.png) | ![Password Reset](screenshots/reset.png) |
 
 ## 🚀 Installation
 
