@@ -60,9 +60,7 @@ Contributions are welcome! To contribute:
 3. Commit your changes.
 4. Push to your fork and submit a pull request.
 
-## 🐜 License
 
-This project is licensed under the MIT License. Feel free to use and modify it as needed.
 
 ## 💎 Contact
 
