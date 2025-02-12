@@ -1,6 +1,7 @@
 import 'package:ai_weather_app/features/auth/data/repos/auth_user_repo_impl.dart';
 import 'package:ai_weather_app/features/auth/data/sources/remote_data_source.dart';
 import 'package:ai_weather_app/features/auth/domain/usecases/login_user_use_case.dart';
+import 'package:ai_weather_app/features/auth/domain/usecases/reset_user_password.dart';
 import 'package:ai_weather_app/features/auth/domain/usecases/sign_up_user_use_case.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -25,6 +26,9 @@ Future<void> setupLocator() async {
       () => AuthUserRepoImpl(sl.get<RemoteDataSource>()));
 
   // UseCase
+  sl.registerLazySingleton<ResetUserPasswordUseCase>(
+      () => ResetUserPasswordUseCase(sl.get<AuthUserRepoImpl>()));
+
   sl.registerLazySingleton<LoginUserUseCase>(
       () => LoginUserUseCase(sl.get<AuthUserRepoImpl>()));
   sl.registerLazySingleton<SignUpUserUseCase>(

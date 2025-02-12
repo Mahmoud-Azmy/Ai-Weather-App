@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 abstract class RemoteDataSource {
   Future<String> loginUseUser(UserModel user);
   Future<void> signUpUseUser(UserModel user);
+  Future<void> resetUserPassword(UserModel user);
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
@@ -36,5 +37,10 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         'uid': userCredential.user!.uid,
       },
     );
+  }
+
+  @override
+  Future<void> resetUserPassword(UserModel user) async {
+    await _firebaseAuth.sendPasswordResetEmail(email: user.email);
   }
 }

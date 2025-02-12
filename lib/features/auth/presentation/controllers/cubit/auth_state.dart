@@ -60,3 +60,22 @@ class SignUpErrorState extends AuthState {
   @override
   List<Object> get props => [message];
 }
+
+class ResetPasswordLoadingState extends AuthState {
+  @override
+  List<Object> get props => [];
+}
+
+class ResetPasswordErrorState extends AuthState {
+  final String message;
+  ResetPasswordErrorState(this.message);
+  @override
+  List<Object> get props => [message];
+}
+
+class ResetPasswordSuccessState extends AuthState {
+  final String message;
+  ResetPasswordSuccessState(this.message);
+  @override
+  List<Object> get props => [message];
+}

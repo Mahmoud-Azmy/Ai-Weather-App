@@ -2,6 +2,7 @@ import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/service_locator.dart';
 import 'package:ai_weather_app/features/auth/domain/entities/user_entity.dart';
 import 'package:ai_weather_app/features/auth/domain/usecases/login_user_use_case.dart';
+import 'package:ai_weather_app/features/auth/domain/usecases/reset_user_password.dart';
 import 'package:ai_weather_app/features/auth/domain/usecases/sign_up_user_use_case.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -10,10 +11,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit(this.loginUserUseCase, this.signUpUserUseCase)
+  AuthCubit(this.loginUserUseCase, this.signUpUserUseCase,
+      this.resetUserPasswordUseCase)
       : super(AuthInitial());
   final LoginUserUseCase loginUserUseCase;
   final SignUpUserUseCase signUpUserUseCase;
+  final ResetUserPasswordUseCase? resetUserPasswordUseCase;
   bool isPasswordVisible = false;
 
   void changePasswordVisibility() {
@@ -45,6 +48,15 @@ class AuthCubit extends Cubit<AuthState> {
     result.fold(
       (l) => emit(SignUpErrorState(l.errorMessage)),
       (r) => emit(SignUpSuccessState(r)),
+    );
+  }
+
+  void resetUserPassword(UserEntity user) async {
+    emit(ResetPasswordLoadingState());
+    var result = await resetUserPasswordUseCase!.call(user);
+    result.fold(
+      (l) => emit(ResetPasswordErrorState(l.errorMessage)),
+      (r) => emit(ResetPasswordSuccessState(r)),
     );
   }
 }

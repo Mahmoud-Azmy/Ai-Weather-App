@@ -5,6 +5,7 @@ import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_bu
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_field_type.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/login_button_bloc_consumer.dart';
+import 'package:ai_weather_app/features/auth/presentation/widgets/show_forget_password_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -75,7 +76,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 ),
                 Align(
                   alignment: Alignment.topRight,
-                  child: CustomTextButton(text: AppConsts.forgetPassText),
+                  child: CustomTextButton(
+                    text: AppConsts.forgetPassText,
+                    onPressed: () {
+                      showForgotPasswordDialog(context);
+                    },
+                  ),
                 ),
                 SizedBox(
                   height: 20,

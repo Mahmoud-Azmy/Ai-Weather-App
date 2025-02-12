@@ -52,4 +52,26 @@ class AuthUserRepoImpl extends BaseAuthUserRepo {
       );
     }
   }
+
+  @override
+  Future<Either<FirebaseFailure, String>> resetUserPassword(
+      UserEntity user) async {
+    try {
+      final userModel = UserModel(
+        name: user.name,
+        email: user.email,
+        password: user.password,
+      );
+      await remoteDataSource.resetUserPassword(userModel);
+      return Right(AppConsts.successMessageResetPassword);
+    } on FirebaseAuthException catch (e) {
+      return Left(
+        ServerFailure.fromFirebaseException(e),
+      );
+    } catch (e) {
+      return Left(
+        ServerFailure.fromGenericFirebaseError(e),
+      );
+    }
+  }
 }
