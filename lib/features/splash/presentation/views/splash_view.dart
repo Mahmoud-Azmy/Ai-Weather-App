@@ -72,8 +72,8 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 1500),
     );
     _animation = Tween<Offset>(
-      begin: const Offset(1.5, 3),
-      end: const Offset(0, 3),
+      begin: Offset(1.5.w, 3.h),
+      end: Offset(0.w, 2.5.h),
     ).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
