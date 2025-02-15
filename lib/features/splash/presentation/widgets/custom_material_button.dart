@@ -1,5 +1,6 @@
 import 'package:ai_weather_app/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomMaterialButton extends StatelessWidget {
   const CustomMaterialButton({
@@ -12,14 +13,14 @@ class CustomMaterialButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      height: 50,
+      height: 50.h,
       color: Colors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(30.r),
       ),
       onPressed: onPressed,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 40),
+        padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 40.w),
         child: Text(
           text,
           style: AppStyles.textStyle22.copyWith(color: Colors.black),

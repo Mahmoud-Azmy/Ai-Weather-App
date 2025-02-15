@@ -4,6 +4,7 @@ import 'package:ai_weather_app/core/utils/app_styles.dart';
 import 'package:ai_weather_app/features/splash/presentation/widgets/custom_material_button.dart';
 import 'package:ai_weather_app/features/splash/presentation/widgets/splash_background_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
@@ -38,8 +39,8 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
           SplashBackgroundImage(),
           // CustomLinearGradient(),
           Positioned(
-            bottom: 40,
-            right: 20,
+            bottom: 40.h,
+            right: 20.w,
             child: CustomMaterialButton(
               onPressed: () {
                 GoRouter.of(context).pushReplacement(AppRouter.registerView);
@@ -53,7 +54,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
               return SlideTransition(
                 position: _animation,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 24, top: 10),
+                  padding: EdgeInsets.only(left: 24.w, top: 10.h),
                   child: Text(AppConsts.knowTheWeatherText,
                       style: AppStyles.textStyle40),
                 ),

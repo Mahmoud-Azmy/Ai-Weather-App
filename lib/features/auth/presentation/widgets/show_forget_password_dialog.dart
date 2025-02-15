@@ -9,6 +9,7 @@ import 'package:ai_weather_app/features/auth/domain/usecases/sign_up_user_use_ca
 import 'package:ai_weather_app/features/auth/presentation/controllers/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void showForgotPasswordDialog(BuildContext context) {
   final emailController = TextEditingController();
@@ -44,12 +45,12 @@ void showForgotPasswordDialog(BuildContext context) {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text(AppConsts.forgotPasswordText),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   TextField(
                     controller: emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16.r),
                       ),
                       labelText: AppConsts.emailText,
                     ),
@@ -82,8 +83,8 @@ void showForgotPasswordDialog(BuildContext context) {
                   },
                   child: state is ResetPasswordLoadingState
                       ? SizedBox(
-                          height: 30,
-                          width: 30,
+                          height: 30.h,
+                          width: 30.w,
                           child: const CircularProgressIndicator(
                             color: Colors.white,
                           ),

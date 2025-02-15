@@ -24,7 +24,7 @@ ScaffoldFeatureController<SnackBar, SnackBarClosedReason> authSnackBar(
       duration: const Duration(seconds: 4),
       backgroundColor: color,
       margin: EdgeInsets.all(24),
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       behavior: SnackBarBehavior.floating,
     ),
   );

@@ -1,30 +1,31 @@
 import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-abstract class AppStyles {
-  static const textStyle18 =
-      TextStyle(fontSize: 18, fontWeight: FontWeight.w600);
-  static const textStyle22 = TextStyle(
-    fontSize: 22,
+class AppStyles {
+  static TextStyle textStyle18 =
+      TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600);
+  static TextStyle textStyle22 = TextStyle(
+    fontSize: 22.sp,
     fontWeight: FontWeight.w600,
   );
-  static const textStyle50 = TextStyle(
-    fontSize: 50,
+  static TextStyle textStyle50 = TextStyle(
+    fontSize: 50.sp,
     fontWeight: FontWeight.w600,
   );
-  static const textStyle20 =
-      TextStyle(fontSize: 20, fontWeight: FontWeight.w500);
-  static const textStyle40 = TextStyle(
-    fontSize: 40,
+  static TextStyle textStyle20 =
+      TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500);
+  static TextStyle textStyle40 = TextStyle(
+    fontSize: 40.sp,
     fontFamily: AppConsts.kPilatExtended,
     fontWeight: FontWeight.w500,
   );
-  static const textStyle12 = TextStyle(
-    fontSize: 12,
+  static TextStyle textStyle12 = TextStyle(
+    fontSize: 12.sp,
     fontWeight: FontWeight.w500,
   );
-  static const textStyle14 = TextStyle(
-    fontSize: 14,
+  static TextStyle textStyle14 = TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeight.w400,
   );
 }
