@@ -1,5 +1,7 @@
 class AppConsts {
   static const String kToken = 'token';
+  static const String baseURL = 'http://api.weatherapi.com/v1/forecast.json?';
+  static const String apiKey = 'eb32de73f3994179a9b53834251602';
   static const String kPilatExtended = 'Pilat Extended';
   static const String appName = 'AI Weather App';
   static const String skipButton = 'Skip';
