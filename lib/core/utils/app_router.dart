@@ -4,7 +4,7 @@ import 'package:ai_weather_app/features/auth/domain/usecases/sign_up_user_use_ca
 import 'package:ai_weather_app/features/auth/presentation/controllers/cubit/auth_cubit.dart';
 import 'package:ai_weather_app/features/auth/presentation/views/login_view.dart';
 import 'package:ai_weather_app/features/auth/presentation/views/register_view.dart';
-import 'package:ai_weather_app/features/splash/presentation/views/splash_view.dart';
+import 'package:ai_weather_app/features/home/presentation/views/home_view.dart';
 import 'package:ai_weather_app/home_test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -13,6 +13,7 @@ abstract class AppRouter {
   static const String splashView = '/';
   static const String registerView = '/register';
   static const String loginView = '/login';
+  static const String homeView = '/home';
   static const String testHomeView = '/testHome';
 
   static GoRouter router(String initialRoute) {
@@ -22,7 +23,7 @@ abstract class AppRouter {
         GoRoute(
           path: splashView,
           builder: (context, state) {
-            return const SplashView();
+            return const HomeView();
           },
         ),
         GoRoute(
@@ -55,6 +56,12 @@ abstract class AppRouter {
           path: testHomeView,
           builder: (context, state) {
             return const HomeTest();
+          },
+        ),
+        GoRoute(
+          path: homeView,
+          builder: (context, state) {
+            return const HomeView();
           },
         ),
       ],

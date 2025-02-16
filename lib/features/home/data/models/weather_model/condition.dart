@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class Condition {
   String? text;
   String? icon;
@@ -7,27 +5,15 @@ class Condition {
 
   Condition({this.text, this.icon, this.code});
 
-  factory Condition.fromMap(Map<String, dynamic> data) => Condition(
-        text: data['text'] as String?,
-        icon: data['icon'] as String?,
-        code: data['code'] as int?,
+  factory Condition.fromJson(Map<String, dynamic> json) => Condition(
+        text: json['text'] as String?,
+        icon: json['icon'] as String?,
+        code: json['code'] as int?,
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         'text': text,
         'icon': icon,
         'code': code,
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Condition].
-  factory Condition.fromJson(String data) {
-    return Condition.fromMap(json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [Condition] to a JSON string.
-  String toJson() => json.encode(toMap());
 }

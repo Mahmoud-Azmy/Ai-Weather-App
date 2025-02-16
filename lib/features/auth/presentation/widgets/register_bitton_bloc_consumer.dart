@@ -62,5 +62,4 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
       },
     );
   }
-
 }

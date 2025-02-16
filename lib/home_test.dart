@@ -24,7 +24,7 @@ class HomeTest extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: AppColors.authBackgroundColor,
+              colors: AppColors.scaffoldBackgroundColor,
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),

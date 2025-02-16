@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'condition.dart';
 
 class Hour {
@@ -75,52 +73,52 @@ class Hour {
     this.uv,
   });
 
-  factory Hour.fromMap(Map<String, dynamic> data) => Hour(
-        timeEpoch: data['time_epoch'] as int?,
-        time: data['time'] as String?,
-        tempC: (data['temp_c'] as num?)?.toDouble(),
-        tempF: (data['temp_f'] as num?)?.toDouble(),
-        isDay: data['is_day'] as int?,
-        condition: data['condition'] == null
+  factory Hour.fromJson(Map<String, dynamic> json) => Hour(
+        timeEpoch: json['time_epoch'] as int?,
+        time: json['time'] as String?,
+        tempC: (json['temp_c'] as num?)?.toDouble(),
+        tempF: (json['temp_f'] as num?)?.toDouble(),
+        isDay: json['is_day'] as int?,
+        condition: json['condition'] == null
             ? null
-            : Condition.fromMap(data['condition'] as Map<String, dynamic>),
-        windMph: (data['wind_mph'] as num?)?.toDouble(),
-        windKph: (data['wind_kph'] as num?)?.toDouble(),
-        windDegree: data['wind_degree'] as int?,
-        windDir: data['wind_dir'] as String?,
-        pressureMb: data['pressure_mb'] as int?,
-        pressureIn: (data['pressure_in'] as num?)?.toDouble(),
-        precipMm: data['precip_mm'] as int?,
-        precipIn: data['precip_in'] as int?,
-        snowCm: data['snow_cm'] as int?,
-        humidity: data['humidity'] as int?,
-        cloud: data['cloud'] as int?,
-        feelslikeC: (data['feelslike_c'] as num?)?.toDouble(),
-        feelslikeF: (data['feelslike_f'] as num?)?.toDouble(),
-        windchillC: (data['windchill_c'] as num?)?.toDouble(),
-        windchillF: (data['windchill_f'] as num?)?.toDouble(),
-        heatindexC: (data['heatindex_c'] as num?)?.toDouble(),
-        heatindexF: (data['heatindex_f'] as num?)?.toDouble(),
-        dewpointC: (data['dewpoint_c'] as num?)?.toDouble(),
-        dewpointF: (data['dewpoint_f'] as num?)?.toDouble(),
-        willItRain: data['will_it_rain'] as int?,
-        chanceOfRain: data['chance_of_rain'] as int?,
-        willItSnow: data['will_it_snow'] as int?,
-        chanceOfSnow: data['chance_of_snow'] as int?,
-        visKm: data['vis_km'] as int?,
-        visMiles: data['vis_miles'] as int?,
-        gustMph: (data['gust_mph'] as num?)?.toDouble(),
-        gustKph: (data['gust_kph'] as num?)?.toDouble(),
-        uv: data['uv'] as int?,
+            : Condition.fromJson(json['condition'] as Map<String, dynamic>),
+        windMph: (json['wind_mph'] as num?)?.toDouble(),
+        windKph: (json['wind_kph'] as num?)?.toDouble(),
+        windDegree: json['wind_degree'] as int?,
+        windDir: json['wind_dir'] as String?,
+        pressureMb: json['pressure_mb'] as int?,
+        pressureIn: (json['pressure_in'] as num?)?.toDouble(),
+        precipMm: json['precip_mm'] as int?,
+        precipIn: json['precip_in'] as int?,
+        snowCm: json['snow_cm'] as int?,
+        humidity: json['humidity'] as int?,
+        cloud: json['cloud'] as int?,
+        feelslikeC: (json['feelslike_c'] as num?)?.toDouble(),
+        feelslikeF: (json['feelslike_f'] as num?)?.toDouble(),
+        windchillC: (json['windchill_c'] as num?)?.toDouble(),
+        windchillF: (json['windchill_f'] as num?)?.toDouble(),
+        heatindexC: (json['heatindex_c'] as num?)?.toDouble(),
+        heatindexF: (json['heatindex_f'] as num?)?.toDouble(),
+        dewpointC: (json['dewpoint_c'] as num?)?.toDouble(),
+        dewpointF: (json['dewpoint_f'] as num?)?.toDouble(),
+        willItRain: json['will_it_rain'] as int?,
+        chanceOfRain: json['chance_of_rain'] as int?,
+        willItSnow: json['will_it_snow'] as int?,
+        chanceOfSnow: json['chance_of_snow'] as int?,
+        visKm: json['vis_km'] as int?,
+        visMiles: json['vis_miles'] as int?,
+        gustMph: (json['gust_mph'] as num?)?.toDouble(),
+        gustKph: (json['gust_kph'] as num?)?.toDouble(),
+        uv: json['uv'] as int?,
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         'time_epoch': timeEpoch,
         'time': time,
         'temp_c': tempC,
         'temp_f': tempF,
         'is_day': isDay,
-        'condition': condition?.toMap(),
+        'condition': condition?.toJson(),
         'wind_mph': windMph,
         'wind_kph': windKph,
         'wind_degree': windDegree,
@@ -150,16 +148,4 @@ class Hour {
         'gust_kph': gustKph,
         'uv': uv,
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Hour].
-  factory Hour.fromJson(String data) {
-    return Hour.fromMap(json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [Hour] to a JSON string.
-  String toJson() => json.encode(toMap());
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color primaryColor = Color(0xFF1A66B2);
-  static List<Color> authBackgroundColor = [
+  static List<Color> scaffoldBackgroundColor = [
     Color.fromARGB(255, 2, 29, 74),
     const Color.fromARGB(255, 1, 4, 28)
   ];

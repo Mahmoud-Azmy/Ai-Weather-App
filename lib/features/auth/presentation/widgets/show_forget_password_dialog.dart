@@ -39,7 +39,7 @@ void showForgotPasswordDialog(BuildContext context) {
           },
           builder: (innerContext, state) {
             return AlertDialog(
-              backgroundColor: AppColors.authBackgroundColor[0],
+              backgroundColor: AppColors.scaffoldBackgroundColor[0],
               title: const Text(AppConsts.forgotPassword),
               content: Column(
                 mainAxisSize: MainAxisSize.min,

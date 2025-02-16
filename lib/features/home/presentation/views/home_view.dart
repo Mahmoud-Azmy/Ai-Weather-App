@@ -1,9 +1,9 @@
 import 'package:ai_weather_app/core/utils/app_colors.dart';
-import 'package:ai_weather_app/features/auth/presentation/widgets/login_view_body.dart';
+import 'package:ai_weather_app/features/home/presentation/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class LoginView extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: LoginViewBody(),
+        child: HomeViewBody(),
       ),
     );
   }

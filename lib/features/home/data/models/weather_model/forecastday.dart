@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'astro.dart';
 import 'day.dart';
 import 'hour.dart';
@@ -13,37 +11,25 @@ class Forecastday {
 
   Forecastday({this.date, this.dateEpoch, this.day, this.astro, this.hour});
 
-  factory Forecastday.fromMap(Map<String, dynamic> data) => Forecastday(
-        date: data['date'] as String?,
-        dateEpoch: data['date_epoch'] as int?,
-        day: data['day'] == null
+  factory Forecastday.fromJson(Map<String, dynamic> json) => Forecastday(
+        date: json['date'] as String?,
+        dateEpoch: json['date_epoch'] as int?,
+        day: json['day'] == null
             ? null
-            : Day.fromMap(data['day'] as Map<String, dynamic>),
-        astro: data['astro'] == null
+            : Day.fromJson(json['day'] as Map<String, dynamic>),
+        astro: json['astro'] == null
             ? null
-            : Astro.fromMap(data['astro'] as Map<String, dynamic>),
-        hour: (data['hour'] as List<dynamic>?)
-            ?.map((e) => Hour.fromMap(e as Map<String, dynamic>))
+            : Astro.fromJson(json['astro'] as Map<String, dynamic>),
+        hour: (json['hour'] as List<dynamic>?)
+            ?.map((e) => Hour.fromJson(e as Map<String, dynamic>))
             .toList(),
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         'date': date,
         'date_epoch': dateEpoch,
-        'day': day?.toMap(),
-        'astro': astro?.toMap(),
-        'hour': hour?.map((e) => e.toMap()).toList(),
+        'day': day?.toJson(),
+        'astro': astro?.toJson(),
+        'hour': hour?.map((e) => e.toJson()).toList(),
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Forecastday].
-  factory Forecastday.fromJson(String data) {
-    return Forecastday.fromMap(json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [Forecastday] to a JSON string.
-  String toJson() => json.encode(toMap());
 }

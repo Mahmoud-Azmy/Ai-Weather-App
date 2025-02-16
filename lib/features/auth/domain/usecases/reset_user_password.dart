@@ -13,4 +13,3 @@ class ResetUserPasswordUseCase extends BaseAuthUserUseCase {
     return await baseAuthUserRepo.resetUserPassword(user);
   }
 }
-

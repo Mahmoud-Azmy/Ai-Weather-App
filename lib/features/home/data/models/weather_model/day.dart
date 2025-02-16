@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'condition.dart';
 
 class Day {
@@ -47,32 +45,32 @@ class Day {
     this.uv,
   });
 
-  factory Day.fromMap(Map<String, dynamic> data) => Day(
-        maxtempC: (data['maxtemp_c'] as num?)?.toDouble(),
-        maxtempF: (data['maxtemp_f'] as num?)?.toDouble(),
-        mintempC: (data['mintemp_c'] as num?)?.toDouble(),
-        mintempF: (data['mintemp_f'] as num?)?.toDouble(),
-        avgtempC: (data['avgtemp_c'] as num?)?.toDouble(),
-        avgtempF: (data['avgtemp_f'] as num?)?.toDouble(),
-        maxwindMph: data['maxwind_mph'] as int?,
-        maxwindKph: (data['maxwind_kph'] as num?)?.toDouble(),
-        totalprecipMm: data['totalprecip_mm'] as int?,
-        totalprecipIn: data['totalprecip_in'] as int?,
-        totalsnowCm: data['totalsnow_cm'] as int?,
-        avgvisKm: data['avgvis_km'] as int?,
-        avgvisMiles: data['avgvis_miles'] as int?,
-        avghumidity: data['avghumidity'] as int?,
-        dailyWillItRain: data['daily_will_it_rain'] as int?,
-        dailyChanceOfRain: data['daily_chance_of_rain'] as int?,
-        dailyWillItSnow: data['daily_will_it_snow'] as int?,
-        dailyChanceOfSnow: data['daily_chance_of_snow'] as int?,
-        condition: data['condition'] == null
+  factory Day.fromJson(Map<String, dynamic> json) => Day(
+        maxtempC: (json['maxtemp_c'] as num?)?.toDouble(),
+        maxtempF: (json['maxtemp_f'] as num?)?.toDouble(),
+        mintempC: (json['mintemp_c'] as num?)?.toDouble(),
+        mintempF: (json['mintemp_f'] as num?)?.toDouble(),
+        avgtempC: (json['avgtemp_c'] as num?)?.toDouble(),
+        avgtempF: (json['avgtemp_f'] as num?)?.toDouble(),
+        maxwindMph: json['maxwind_mph'] as int?,
+        maxwindKph: (json['maxwind_kph'] as num?)?.toDouble(),
+        totalprecipMm: json['totalprecip_mm'] as int?,
+        totalprecipIn: json['totalprecip_in'] as int?,
+        totalsnowCm: json['totalsnow_cm'] as int?,
+        avgvisKm: json['avgvis_km'] as int?,
+        avgvisMiles: json['avgvis_miles'] as int?,
+        avghumidity: json['avghumidity'] as int?,
+        dailyWillItRain: json['daily_will_it_rain'] as int?,
+        dailyChanceOfRain: json['daily_chance_of_rain'] as int?,
+        dailyWillItSnow: json['daily_will_it_snow'] as int?,
+        dailyChanceOfSnow: json['daily_chance_of_snow'] as int?,
+        condition: json['condition'] == null
             ? null
-            : Condition.fromMap(data['condition'] as Map<String, dynamic>),
-        uv: (data['uv'] as num?)?.toDouble(),
+            : Condition.fromJson(json['condition'] as Map<String, dynamic>),
+        uv: (json['uv'] as num?)?.toDouble(),
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         'maxtemp_c': maxtempC,
         'maxtemp_f': maxtempF,
         'mintemp_c': mintempC,
@@ -91,19 +89,7 @@ class Day {
         'daily_chance_of_rain': dailyChanceOfRain,
         'daily_will_it_snow': dailyWillItSnow,
         'daily_chance_of_snow': dailyChanceOfSnow,
-        'condition': condition?.toMap(),
+        'condition': condition?.toJson(),
         'uv': uv,
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Day].
-  factory Day.fromJson(String data) {
-    return Day.fromMap(json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [Day] to a JSON string.
-  String toJson() => json.encode(toMap());
 }

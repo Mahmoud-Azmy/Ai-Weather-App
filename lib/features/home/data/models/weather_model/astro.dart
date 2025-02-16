@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class Astro {
   String? sunrise;
   String? sunset;
@@ -21,18 +19,18 @@ class Astro {
     this.isSunUp,
   });
 
-  factory Astro.fromMap(Map<String, dynamic> data) => Astro(
-        sunrise: data['sunrise'] as String?,
-        sunset: data['sunset'] as String?,
-        moonrise: data['moonrise'] as String?,
-        moonset: data['moonset'] as String?,
-        moonPhase: data['moon_phase'] as String?,
-        moonIllumination: data['moon_illumination'] as int?,
-        isMoonUp: data['is_moon_up'] as int?,
-        isSunUp: data['is_sun_up'] as int?,
+  factory Astro.fromJson(Map<String, dynamic> json) => Astro(
+        sunrise: json['sunrise'] as String?,
+        sunset: json['sunset'] as String?,
+        moonrise: json['moonrise'] as String?,
+        moonset: json['moonset'] as String?,
+        moonPhase: json['moon_phase'] as String?,
+        moonIllumination: json['moon_illumination'] as int?,
+        isMoonUp: json['is_moon_up'] as int?,
+        isSunUp: json['is_sun_up'] as int?,
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         'sunrise': sunrise,
         'sunset': sunset,
         'moonrise': moonrise,
@@ -42,16 +40,4 @@ class Astro {
         'is_moon_up': isMoonUp,
         'is_sun_up': isSunUp,
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Astro].
-  factory Astro.fromJson(String data) {
-    return Astro.fromMap(json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [Astro] to a JSON string.
-  String toJson() => json.encode(toMap());
 }
