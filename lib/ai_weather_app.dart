@@ -1,3 +1,4 @@
+import 'package:ai_weather_app/core/utils/app_colors.dart';
 import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,9 @@ class AiWeatherApp extends StatelessWidget {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: AppConsts.appName,
-        theme: ThemeData.dark(),
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor[1],
+        ),
         routerConfig: AppRouter.router(initialRoute),
       ),
     );

@@ -2,14 +2,14 @@ import 'package:ai_weather_app/core/network/api_service.dart';
 import 'package:ai_weather_app/features/home/data/models/weather_model/weather_model.dart';
 import 'package:ai_weather_app/features/home/domain/entities/weather_entity.dart';
 
-abstract class BaseRemoteDataSource {
+abstract class WeatherBaseRemoteDataSource {
   Future<List<WeatherEntity>> getWeatherData({required String city});
 }
 
-class RemoteDataSourceImpl extends BaseRemoteDataSource {
+class WeatherRemoteDataSourceImpl extends WeatherBaseRemoteDataSource {
   final ApiService apiService;
 
-  RemoteDataSourceImpl(this.apiService);
+  WeatherRemoteDataSourceImpl(this.apiService);
   @override
   Future<List<WeatherEntity>> getWeatherData({required String city}) async {
     var data = await apiService.get(city);

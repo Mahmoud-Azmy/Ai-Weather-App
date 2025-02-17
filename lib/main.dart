@@ -18,9 +18,11 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   final token = sl<SharedPreferences>().getString(AppConsts.kToken);
   final initialRoute = token != null && token.isNotEmpty
-      ? AppRouter.testHomeView
+      ? AppRouter.homeView
       : AppRouter.splashView;
-  runApp(AiWeatherApp(
-    initialRoute: initialRoute,
-  ));
+  runApp(
+    AiWeatherApp(
+      initialRoute: initialRoute,
+    ),
+  );
 }

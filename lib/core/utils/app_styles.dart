@@ -28,4 +28,6 @@ class AppStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle textStyle28 =
+      TextStyle(fontSize: 28, fontWeight: FontWeight.bold);
 }

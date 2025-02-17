@@ -32,7 +32,7 @@ class LoginButtonBlocConsumer extends StatelessWidget {
         if (state is LoginSuccessState) {
           authSnackBar(
               context: context, message: state.message, color: Colors.green);
-          GoRouter.of(context).pushReplacement(AppRouter.testHomeView);
+          GoRouter.of(context).pushReplacement(AppRouter.homeView);
         }
       },
       builder: (context, state) {

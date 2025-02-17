@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class WeatherRepoImpl implements BaseWeatherRepo {
-  final BaseRemoteDataSource remoteDataSource;
+  final WeatherBaseRemoteDataSource remoteDataSource;
 
   WeatherRepoImpl(this.remoteDataSource);
   @override
