@@ -9,6 +9,10 @@ sealed class WeatherDataState extends Equatable {
 
 final class WeatherDataInitial extends WeatherDataState {}
 
+final class ChangeIndexState extends WeatherDataState {}
+
+final class SetIndexState extends WeatherDataState {}
+
 final class WeatherDataLoadingState extends WeatherDataState {}
 
 final class WeatherDataLoadedState extends WeatherDataState {

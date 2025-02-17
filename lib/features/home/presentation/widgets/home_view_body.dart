@@ -31,7 +31,11 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   if (state is WeatherDataLoadedState)
                     WeatherDetailsSection(
-                        weatherEntity: state.weatherList[7], isLoading: false),
+                      weatherEntity: state.weatherList[
+                          BlocProvider.of<WeatherDataCubit>(context)
+                              .selectedIndex],
+                      isLoading: false,
+                    ),
                   if (state is WeatherDataErrorState)
                     Center(
                       child: Text(state.message),

@@ -9,6 +9,8 @@ class WeatherDataCubit extends Cubit<WeatherDataState> {
   WeatherDataCubit(this.getWeatherDataUseCas) : super(WeatherDataInitial());
   final GetWeatherDataUseCase getWeatherDataUseCas;
   bool isLoading = false;
+  int currentIndex = 0;
+  int selectedIndex = 0;
   Future<void> getWeatherData(String city) async {
     emit(WeatherDataLoadingState());
     var result = await getWeatherDataUseCas.call(city: city);
@@ -25,5 +27,17 @@ class WeatherDataCubit extends Cubit<WeatherDataState> {
       },
     );
     isLoading = false;
+  }
+
+  void setSelectedIndex(int index) {
+    if (selectedIndex != index) {
+      selectedIndex = index;
+      emit(SetIndexState());
+    }
+  }
+
+  void changeIndex(int index) {
+    currentIndex = index;
+    emit(ChangeIndexState());
   }
 }

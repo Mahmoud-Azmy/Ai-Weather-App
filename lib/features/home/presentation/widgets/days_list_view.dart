@@ -1,7 +1,8 @@
 import 'package:ai_weather_app/core/utils/app_colors.dart';
-import 'package:ai_weather_app/features/home/presentation/widgets/days_list_view_active_item.dart';
-import 'package:ai_weather_app/features/home/presentation/widgets/days_list_view_in_active_item.dart';
+import 'package:ai_weather_app/features/home/presentation/controllers/get_weather_data_cubit/weather_data_cubit.dart';
+import 'package:ai_weather_app/features/home/presentation/widgets/days_list_view_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DaysListView extends StatelessWidget {
@@ -21,14 +22,21 @@ class DaysListView extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            if (index == 5) {
-              return DaysListViewActiveItem(index: index);
-            }
-            return DaysListViewInactiveItem(
-              index: index,
+            return GestureDetector(
+              onTap: () {
+                BlocProvider.of<WeatherDataCubit>(context)
+                    .setSelectedIndex(index);
+                BlocProvider.of<WeatherDataCubit>(context).changeIndex(index);
+                BlocProvider.of<WeatherDataCubit>(context)
+                    .getWeatherData('fayoum');
+              },
+              child: DaysListViewItem(
+                isSelected: index ==
+                    BlocProvider.of<WeatherDataCubit>(context).selectedIndex,
+              ),
             );
           },
-          itemCount: 10),
+          itemCount: 5),
     );
   }
 }

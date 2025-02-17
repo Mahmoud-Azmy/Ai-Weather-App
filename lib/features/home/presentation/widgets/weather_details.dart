@@ -12,7 +12,7 @@ Widget weatherDetail(String label, String value) {
       SizedBox(height: 5.h),
       Text(
         value,
-        style: AppStyles.textStyle14,
+        style: AppStyles.textStyle14.copyWith(color: Colors.grey),
       ),
     ],
   );

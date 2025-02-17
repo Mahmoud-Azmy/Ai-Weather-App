@@ -3,17 +3,17 @@ import 'package:ai_weather_app/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DaysListViewActiveItem extends StatelessWidget {
-  const DaysListViewActiveItem({
+class DaysListViewItem extends StatelessWidget {
+  const DaysListViewItem({
     super.key,
-    required this.index,
+    required this.isSelected,
   });
-  final int index;
+  final bool isSelected;
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isSelected ? Colors.white : AppColors.textFormFiledColor,
         borderRadius: BorderRadius.circular(24.r),
       ),
       width: 50.w,
@@ -23,12 +23,13 @@ class DaysListViewActiveItem extends StatelessWidget {
           Text(
             "Mon",
             style: AppStyles.textStyle12.copyWith(
-                fontWeight: FontWeight.w200, color: AppColors.primaryColor),
+                fontWeight: FontWeight.w200,
+                color: isSelected ? AppColors.primaryColor : Colors.white),
           ),
           Text(
-            (index + 1).toString(),
-            style:
-                AppStyles.textStyle22.copyWith(color: AppColors.primaryColor),
+            '4',
+            style: AppStyles.textStyle22.copyWith(
+                color: isSelected ? AppColors.primaryColor : Colors.white),
           ),
         ],
       ),
