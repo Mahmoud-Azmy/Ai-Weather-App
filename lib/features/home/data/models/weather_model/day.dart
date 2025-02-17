@@ -7,18 +7,18 @@ class Day {
   double? mintempF;
   double? avgtempC;
   double? avgtempF;
-  int? maxwindMph;
+  double? maxwindMph;
   double? maxwindKph;
-  int? totalprecipMm;
-  int? totalprecipIn;
-  int? totalsnowCm;
-  int? avgvisKm;
-  int? avgvisMiles;
-  int? avghumidity;
-  int? dailyWillItRain;
-  int? dailyChanceOfRain;
-  int? dailyWillItSnow;
-  int? dailyChanceOfSnow;
+  double? totalprecipMm;
+  double? totalprecipIn;
+  double? totalsnowCm;
+  double? avgvisKm;
+  double? avgvisMiles;
+  double? avghumidity;
+  double? dailyWillItRain;
+  double? dailyChanceOfRain;
+  double? dailyWillItSnow;
+  double? dailyChanceOfSnow;
   Condition? condition;
   double? uv;
 
@@ -52,18 +52,18 @@ class Day {
         mintempF: (json['mintemp_f'] as num?)?.toDouble(),
         avgtempC: (json['avgtemp_c'] as num?)?.toDouble(),
         avgtempF: (json['avgtemp_f'] as num?)?.toDouble(),
-        maxwindMph: json['maxwind_mph'] as int?,
+        maxwindMph: (json['maxwind_mph'] as num?)?.toDouble(),
         maxwindKph: (json['maxwind_kph'] as num?)?.toDouble(),
-        totalprecipMm: json['totalprecip_mm'] as int?,
-        totalprecipIn: json['totalprecip_in'] as int?,
-        totalsnowCm: json['totalsnow_cm'] as int?,
-        avgvisKm: json['avgvis_km'] as int?,
-        avgvisMiles: json['avgvis_miles'] as int?,
-        avghumidity: json['avghumidity'] as int?,
-        dailyWillItRain: json['daily_will_it_rain'] as int?,
-        dailyChanceOfRain: json['daily_chance_of_rain'] as int?,
-        dailyWillItSnow: json['daily_will_it_snow'] as int?,
-        dailyChanceOfSnow: json['daily_chance_of_snow'] as int?,
+        totalprecipMm: (json['totalprecip_mm'] as num?)?.toDouble(),
+        totalprecipIn: (json['totalprecip_in'] as num?)?.toDouble(),
+        totalsnowCm: (json['totalsnow_cm'] as num?)?.toDouble(),
+        avgvisKm: (json['avgvis_km'] as num?)?.toDouble(),
+        avgvisMiles: (json['avgvis_miles'] as num?)?.toDouble(),
+        avghumidity: (json['avghumidity'] as num?)?.toDouble(),
+        dailyWillItRain: (json['daily_will_it_rain'] as num?)?.toDouble(),
+        dailyChanceOfRain: (json['daily_chance_of_rain'] as num?)?.toDouble(),
+        dailyWillItSnow: (json['daily_will_it_snow'] as num?)?.toDouble(),
+        dailyChanceOfSnow: (json['daily_chance_of_snow'] as num?)?.toDouble(),
         condition: json['condition'] == null
             ? null
             : Condition.fromJson(json['condition'] as Map<String, dynamic>),

@@ -1,42 +1,57 @@
 import 'package:ai_weather_app/features/home/domain/entities/weather_entity.dart';
 
-import 'current.dart';
-import 'forecast.dart';
-import 'location.dart';
+import 'astro.dart';
+import 'day.dart';
+import 'hour.dart';
 
 class WeatherModel extends WeatherEntity {
-  Location? location;
-  Current? current;
-  Forecast? forecast;
+  String? date;
+  int? dateEpoch;
+  Day? day;
+  Astro? astro;
+  List<Hour>? hour;
 
-  WeatherModel({this.location, this.current, this.forecast})
-      : super(
-          cityName: location?.name ?? '',
-          id: current?.condition?.code ?? 0,
-          description: forecast?.forecastday?[0].day?.condition?.text ?? '',
-          minTemp: forecast?.forecastday?[0].day?.mintempC ?? 0.0,
-          maxTemp: forecast?.forecastday?[0].day?.maxtempC ?? 0.0,
-          temp: forecast?.forecastday?[0].day?.avgtempC ?? 0.0,
-          humidity: forecast?.forecastday?[0].day?.avghumidity ?? 0,
-          windSpeed: forecast?.forecastday?[0].day?.maxwindKph ?? 0,
-          icon: forecast?.forecastday?[0].day?.condition?.icon ?? '',
+  WeatherModel({
+    this.date,
+    this.dateEpoch,
+    this.day,
+    this.astro,
+    this.hour,
+  }) : super(
+          cityName: 'al fayoum',
+          id: day?.condition?.code ?? 0,
+          description: day?.condition?.text ?? '',
+          minTemp: day?.mintempC ?? 0.0,
+          maxTemp: day?.maxtempC ?? 0.0,
+          temp: day?.avgtempC ?? 0.0,
+          humidity: day?.avghumidity ?? 0.0,
+          windSpeed: day?.maxwindKph ?? 0.0,
+          icon: day?.condition?.icon ?? '',
+          sunrise: astro?.sunrise ?? '',
+          sunset: astro?.sunset ?? '',
+          uv: day?.uv ?? 0.0,
+          responseDate: date ?? '',
         );
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) => WeatherModel(
-        location: json['location'] == null
+        date: json['date'] as String?,
+        dateEpoch: json['date_epoch'] as int?,
+        day: json['day'] == null
             ? null
-            : Location.fromJson(json['location'] as Map<String, dynamic>),
-        current: json['current'] == null
+            : Day.fromJson(json['day'] as Map<String, dynamic>),
+        astro: json['astro'] == null
             ? null
-            : Current.fromJson(json['current'] as Map<String, dynamic>),
-        forecast: json['forecast'] == null
-            ? null
-            : Forecast.fromJson(json['forecast'] as Map<String, dynamic>),
+            : Astro.fromJson(json['astro'] as Map<String, dynamic>),
+        hour: (json['hour'] as List<dynamic>?)
+            ?.map((e) => Hour.fromJson(e as Map<String, dynamic>))
+            .toList(),
       );
 
   Map<String, dynamic> toJson() => {
-        'location': location?.toJson(),
-        'current': current?.toJson(),
-        'forecast': forecast?.toJson(),
+        'date': date,
+        'date_epoch': dateEpoch,
+        'day': day?.toJson(),
+        'astro': astro?.toJson(),
+        'hour': hour?.map((e) => e.toJson()).toList(),
       };
 }
