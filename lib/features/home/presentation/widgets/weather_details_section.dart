@@ -17,10 +17,6 @@ class WeatherDetailsSection extends StatelessWidget {
       enabled: isLoading,
       child: Column(
         children: [
-          Text(
-            weatherEntity?.cityName ?? '',
-            style: AppStyles.textStyle28,
-          ),
           SizedBox(height: 10.h),
           Text(
             weatherEntity?.responseDate ?? '',

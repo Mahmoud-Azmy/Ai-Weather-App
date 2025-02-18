@@ -28,6 +28,8 @@ dependencies:
   intl: ^0.20.2
   shared_preferences: ^2.5.2
   skeletonizer: ^1.4.3
+  geocoding: ^3.0.0
+  geolocator: ^13.0.2
 
 dev_dependencies:
   build_runner: ^2.4.15

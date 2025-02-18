@@ -5,6 +5,7 @@ import 'package:ai_weather_app/features/auth/presentation/controllers/cubit/auth
 import 'package:ai_weather_app/features/auth/presentation/views/login_view.dart';
 import 'package:ai_weather_app/features/auth/presentation/views/register_view.dart';
 import 'package:ai_weather_app/features/home/domain/use_cases/get_weather_data_use_case.dart';
+import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_weather_data_cubit/weather_data_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/views/home_view.dart';
 import 'package:ai_weather_app/features/splash/presentation/views/splash_view.dart';
@@ -18,6 +19,7 @@ abstract class AppRouter {
   static const String loginView = '/login';
   static const String homeView = '/home';
   static const String testHomeView = '/testHome';
+  // static const String cityFinderView = '/cityFinder';
 
   static GoRouter router(String initialRoute) {
     return GoRouter(
@@ -62,11 +64,12 @@ abstract class AppRouter {
         GoRoute(
           path: homeView,
           builder: (context, state) {
+            var cubit = BlocProvider.of<LocationCubit>(context);
             return BlocProvider(
               create: (context) => WeatherDataCubit(
                 sl.get<GetWeatherDataUseCase>(),
-              )..getWeatherData('madrid'),
-              child: const HomeView(),
+              )..getWeatherData('${cubit.state.lat},${cubit.state.long}'),
+              child: HomeView(),
             );
           },
         ),

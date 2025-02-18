@@ -1,9 +1,12 @@
 import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/app_router.dart';
 import 'package:ai_weather_app/core/utils/app_styles.dart';
+import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_cubit.dart';
+import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_state.dart';
 import 'package:ai_weather_app/features/splash/presentation/widgets/custom_material_button.dart';
 import 'package:ai_weather_app/features/splash/presentation/widgets/splash_background_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -32,37 +35,42 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Stack(
-        children: [
-          SplashBackgroundImage(),
-          // CustomLinearGradient(),
-          Positioned(
-            bottom: 40.h,
-            right: 20.w,
-            child: CustomMaterialButton(
-              onPressed: () {
-                GoRouter.of(context).pushReplacement(AppRouter.registerView);
-              },
-              text: AppConsts.skipButton,
-            ),
-          ),
-          AnimatedBuilder(
-            animation: _animation,
-            builder: (context, _) {
-              return SlideTransition(
-                position: _animation,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 24.w, top: 10.h),
-                  child: Text(AppConsts.knowTheWeatherText,
-                      style: AppStyles.textStyle40),
+    return BlocBuilder<LocationCubit, LocationState>(
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: Colors.black,
+          body: Stack(
+            children: [
+              SplashBackgroundImage(),
+              // CustomLinearGradient(),
+              Positioned(
+                bottom: 40.h,
+                right: 20.w,
+                child: CustomMaterialButton(
+                  onPressed: () {
+                    GoRouter.of(context)
+                        .pushReplacement(AppRouter.registerView);
+                  },
+                  text: AppConsts.skipButton,
                 ),
-              );
-            },
+              ),
+              AnimatedBuilder(
+                animation: _animation,
+                builder: (context, _) {
+                  return SlideTransition(
+                    position: _animation,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 24.w, top: 10.h),
+                      child: Text(AppConsts.knowTheWeatherText,
+                          style: AppStyles.textStyle40),
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
