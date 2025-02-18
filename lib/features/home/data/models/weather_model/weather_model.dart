@@ -18,7 +18,7 @@ class WeatherModel extends WeatherEntity {
     this.astro,
     this.hour,
   }) : super(
-          cityName: 'al fayoum',
+          cityName: 'Madrid',
           id: day?.condition?.code ?? 0,
           description: day?.condition?.text ?? '',
           minTemp: day?.mintempC ?? 0.0,

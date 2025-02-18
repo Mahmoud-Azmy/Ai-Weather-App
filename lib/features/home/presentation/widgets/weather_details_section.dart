@@ -1,3 +1,4 @@
+import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/app_styles.dart';
 import 'package:ai_weather_app/features/home/domain/entities/weather_entity.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/weather_details.dart';
@@ -30,23 +31,28 @@ class WeatherDetailsSection extends StatelessWidget {
             "${weatherEntity?.temp} C°",
             style: AppStyles.textStyle50,
           ),
+          // SizedBox(height: 10.h),
+          Text(
+            weatherEntity?.description ?? '',
+            style: AppStyles.textStyle14.copyWith(color: Colors.grey),
+          ),
           SizedBox(height: 30.h),
-          weatherDetail("Humidity", "${weatherEntity?.humidity}%"),
+          weatherDetail(AppConsts.humidity, "${weatherEntity?.humidity}%"),
           SizedBox(height: 30.h),
           Row(
-            spacing: 120.w,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              weatherDetail("Wind", "${weatherEntity?.windSpeed} km/h"),
-              weatherDetail("UV index", "${weatherEntity?.uv}"),
+              weatherDetail(AppConsts.wind, "${weatherEntity?.windSpeed} km/h"),
+              Spacer(),
+              weatherDetail(AppConsts.uv, "${weatherEntity?.uv}"),
             ],
           ),
           SizedBox(height: 50.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              weatherDetail("Sunrise", weatherEntity?.sunrise ?? ''),
-              weatherDetail("Sunset", weatherEntity?.sunset ?? ''),
+              weatherDetail(AppConsts.sunrise, weatherEntity?.sunrise ?? ''),
+              weatherDetail(AppConsts.sunset, weatherEntity?.sunset ?? ''),
             ],
           ),
           SizedBox(height: 50.h),

@@ -7,8 +7,12 @@ class DaysListViewItem extends StatelessWidget {
   const DaysListViewItem({
     super.key,
     required this.isSelected,
+    required this.dayName,
+    required this.dayNumber,
   });
   final bool isSelected;
+  final String dayName;
+  final int dayNumber;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,13 +25,13 @@ class DaysListViewItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Mon",
+            dayName,
             style: AppStyles.textStyle12.copyWith(
                 fontWeight: FontWeight.w200,
                 color: isSelected ? AppColors.primaryColor : Colors.white),
           ),
           Text(
-            '4',
+            '$dayNumber',
             style: AppStyles.textStyle22.copyWith(
                 color: isSelected ? AppColors.primaryColor : Colors.white),
           ),

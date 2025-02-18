@@ -65,7 +65,7 @@ abstract class AppRouter {
             return BlocProvider(
               create: (context) => WeatherDataCubit(
                 sl.get<GetWeatherDataUseCase>(),
-              )..getWeatherData('fayoum'),
+              )..getWeatherData('madrid'),
               child: const HomeView(),
             );
           },

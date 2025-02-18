@@ -21,6 +21,12 @@ class AppConsts {
   static const String successMessageSignUp = 'User created successfully';
   static const String enterYourEmail = 'Please enter your email.';
   static const String forgotPassword = 'Forgot Password';
+  static const String sunrise = 'Sunrise';
+  static const String sunset = 'Sunset';
+  static const String humidity = 'Humidity';
+  static const String uv = 'UV index';
+  static const String wind = 'Wind';
+
   static const String forgotPasswordText =
       'Enter your email to reset your password.';
   static const String createAcountText =

@@ -1,3 +1,4 @@
+import 'package:ai_weather_app/core/functions/get_day_name_and_number.dart';
 import 'package:ai_weather_app/core/utils/app_colors.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_weather_data_cubit/weather_data_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/days_list_view_item.dart';
@@ -31,6 +32,8 @@ class DaysListView extends StatelessWidget {
                     .getWeatherData('fayoum');
               },
               child: DaysListViewItem(
+                dayName: forecastDays[index]['dayName'],
+                dayNumber: forecastDays[index]['dayNumber'],
                 isSelected: index ==
                     BlocProvider.of<WeatherDataCubit>(context).selectedIndex,
               ),
