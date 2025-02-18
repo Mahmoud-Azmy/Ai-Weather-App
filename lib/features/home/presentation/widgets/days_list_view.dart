@@ -1,5 +1,6 @@
 import 'package:ai_weather_app/core/functions/get_day_name_and_number.dart';
 import 'package:ai_weather_app/core/utils/app_colors.dart';
+import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_weather_data_cubit/weather_data_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/days_list_view_item.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +15,10 @@ class DaysListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90.h,
+      height: 80.h,
       decoration: BoxDecoration(
         color: AppColors.textFormFiledColor,
-        borderRadius: BorderRadius.circular(24.r),
+        borderRadius: BorderRadius.circular(20.r),
       ),
       child: ListView.builder(
           shrinkWrap: true,
@@ -28,8 +29,8 @@ class DaysListView extends StatelessWidget {
                 BlocProvider.of<WeatherDataCubit>(context)
                     .setSelectedIndex(index);
                 BlocProvider.of<WeatherDataCubit>(context).changeIndex(index);
-                BlocProvider.of<WeatherDataCubit>(context)
-                    .getWeatherData('fayoum');
+                BlocProvider.of<WeatherDataCubit>(context).getWeatherData(
+                    BlocProvider.of<LocationCubit>(context).state.city);
               },
               child: DaysListViewItem(
                 dayName: forecastDays[index]['dayName'],
@@ -39,7 +40,7 @@ class DaysListView extends StatelessWidget {
               ),
             );
           },
-          itemCount: 5),
+          itemCount: 7),
     );
   }
 }

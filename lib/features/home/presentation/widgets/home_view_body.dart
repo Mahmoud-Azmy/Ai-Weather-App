@@ -1,4 +1,7 @@
+import 'package:ai_weather_app/core/utils/app_consts.dart';
+import 'package:ai_weather_app/core/utils/app_router.dart';
 import 'package:ai_weather_app/core/utils/app_styles.dart';
+import 'package:ai_weather_app/core/utils/service_locator.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_state.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_weather_data_cubit/weather_data_cubit.dart';
@@ -8,6 +11,8 @@ import 'package:ai_weather_app/features/home/presentation/widgets/weather_detail
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
@@ -75,13 +80,14 @@ class HomeViewBody extends StatelessWidget {
                         Center(
                           child: Text(state.message),
                         ),
-                      // ElevatedButton(
-                      //   child: Text('Logout', style: TextStyle(fontSize: 40)),
-                      //   onPressed: () {
-                      //     sl<SharedPreferences>().remove(AppConsts.kToken);
-                      //     GoRouter.of(context).go(AppRouter.splashView);
-                      //   },
-                      // ),
+                      ElevatedButton(
+                        child: Text('Logout', style: TextStyle(fontSize: 40)),
+                        onPressed: () {
+                          sl<SharedPreferences>().remove(AppConsts.kToken);
+                          sl<SharedPreferences>().remove('userName');
+                          GoRouter.of(context).go(AppRouter.splashView);
+                        },
+                      ),
                     ],
                   );
                 },

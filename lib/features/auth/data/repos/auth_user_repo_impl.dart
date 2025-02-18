@@ -74,4 +74,18 @@ class AuthUserRepoImpl extends BaseAuthUserRepo {
       );
     }
   }
+
+  @override
+  Future<Either<FirebaseFailure, UserModel>> getUserData() async {
+    try {
+      final user = await remoteDataSource.getUserData();
+      if (user != null) {
+        return Right(user);
+      } else {
+        return Left(ServerFailure('User not found in Firestor'));
+      }
+    } catch (e) {
+      return Left(ServerFailure.fromGenericFirebaseError(e));
+    }
+  }
 }

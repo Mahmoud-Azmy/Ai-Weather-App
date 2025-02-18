@@ -3,6 +3,7 @@ import 'package:ai_weather_app/core/utils/app_colors.dart';
 import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/service_locator.dart';
 import 'package:ai_weather_app/features/auth/domain/entities/user_entity.dart';
+import 'package:ai_weather_app/features/auth/domain/repos/base_auth_user_repo.dart';
 import 'package:ai_weather_app/features/auth/domain/usecases/login_user_use_case.dart';
 import 'package:ai_weather_app/features/auth/domain/usecases/reset_user_password.dart';
 import 'package:ai_weather_app/features/auth/domain/usecases/sign_up_user_use_case.dart';
@@ -22,6 +23,7 @@ void showForgotPasswordDialog(BuildContext context) {
           sl<LoginUserUseCase>(),
           sl<SignUpUserUseCase>(),
           sl<ResetUserPasswordUseCase>(),
+          sl<BaseAuthUserRepo>(),
         ),
         child: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {

@@ -18,9 +18,9 @@ class DaysListViewItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: isSelected ? Colors.white : AppColors.textFormFiledColor,
-        borderRadius: BorderRadius.circular(24.r),
+        borderRadius: BorderRadius.circular(20.r),
       ),
-      width: 50.w,
+      width: 55.w,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
