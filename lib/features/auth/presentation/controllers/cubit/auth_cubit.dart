@@ -8,7 +8,6 @@ import 'package:ai_weather_app/features/auth/domain/usecases/reset_user_password
 import 'package:ai_weather_app/features/auth/domain/usecases/sign_up_user_use_case.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'auth_state.dart';
@@ -38,11 +37,15 @@ class AuthCubit extends Cubit<AuthState> {
       (token) async {
         await sl<SharedPreferences>().setString(AppConsts.kToken, token);
         // Fetch user data and store name in SharedPreferences
+        emit(GetUserLoadingState());
         var userData = await baseAuthUserRepo.getUserData();
         userData.fold(
-          (l) => debugPrint('Error fetching user dat'), // Handle error
+          (l) {
+            emit(GetUserErrorState(l.errorMessage));
+          },
           (user) async {
             await sl<SharedPreferences>().setString("userName", user.name);
+            emit(GetUserSuccessState(user));
           },
         );
         emit(LoginSuccessState(AppConsts.successMessage));

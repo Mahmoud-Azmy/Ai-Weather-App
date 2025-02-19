@@ -8,8 +8,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 class HomeViewAppBar extends StatelessWidget {
   const HomeViewAppBar({
     super.key,
+    this.onPressed,
   });
-
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -29,7 +30,7 @@ class HomeViewAppBar extends StatelessWidget {
           ],
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: onPressed,
           icon: Icon(
             Icons.menu,
             size: 40.sp,
