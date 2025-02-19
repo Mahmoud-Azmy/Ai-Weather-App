@@ -16,19 +16,25 @@ class HomeViewAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Hello',
-              style:
-                  AppStyles.textStyle22.copyWith(color: AppColors.primaryColor),
-            ),
-            Text('${sl<SharedPreferences>().getString('userName')}',
-                style: AppStyles.textStyle18
-                    .copyWith(fontWeight: FontWeight.w300)),
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Hello',
+                style: AppStyles.textStyle22
+                    .copyWith(color: AppColors.primaryColor),
+              ),
+              Text(
+                '${sl<SharedPreferences>().getString('userName')}',
+                style:
+                    AppStyles.textStyle18.copyWith(fontWeight: FontWeight.w300),
+                maxLines: 2,
+              ),
+            ],
+          ),
         ),
+        SizedBox(width: 20.w),
         IconButton(
           onPressed: onPressed,
           icon: Icon(
