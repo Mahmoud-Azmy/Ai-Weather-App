@@ -1,5 +1,5 @@
 import 'package:ai_weather_app/core/functions/get_day_name_and_number.dart';
-import 'package:ai_weather_app/core/utils/app_colors.dart';
+import 'package:ai_weather_app/core/theme/app_colors.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_weather_data_cubit/weather_data_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/days_list_view_item.dart';
@@ -17,7 +17,7 @@ class DaysListView extends StatelessWidget {
     return Container(
       height: 80.h,
       decoration: BoxDecoration(
-        color: AppColors.textFormFiledColor,
+        color: AppColors.secondaryColor,
         borderRadius: BorderRadius.circular(20.r),
       ),
       child: ListView.builder(

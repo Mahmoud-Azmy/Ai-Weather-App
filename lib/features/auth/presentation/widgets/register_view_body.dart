@@ -1,6 +1,6 @@
 import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/app_router.dart';
-import 'package:ai_weather_app/core/utils/app_styles.dart';
+import 'package:ai_weather_app/core/theme/app_styles.dart';
 import 'package:ai_weather_app/core/utils/validators.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_button.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_field_type.dart';

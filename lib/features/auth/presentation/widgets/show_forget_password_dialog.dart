@@ -1,5 +1,5 @@
 import 'package:ai_weather_app/core/functions/show_snack_bar.dart';
-import 'package:ai_weather_app/core/utils/app_colors.dart';
+import 'package:ai_weather_app/core/theme/app_colors.dart';
 import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/service_locator.dart';
 import 'package:ai_weather_app/features/auth/domain/entities/user_entity.dart';

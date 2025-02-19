@@ -1,4 +1,4 @@
-import 'package:ai_weather_app/core/utils/app_styles.dart';
+import 'package:ai_weather_app/core/theme/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {

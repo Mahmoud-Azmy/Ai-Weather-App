@@ -1,4 +1,4 @@
-import 'package:ai_weather_app/core/utils/app_colors.dart';
+import 'package:ai_weather_app/core/theme/app_colors.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/custom_drawer.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';

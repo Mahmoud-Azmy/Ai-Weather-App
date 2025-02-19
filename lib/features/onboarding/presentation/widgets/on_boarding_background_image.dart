@@ -1,8 +1,8 @@
 import 'package:ai_weather_app/core/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 
-class SplashBackgroundImage extends StatelessWidget {
-  const SplashBackgroundImage({
+class OnBoardingBackgroundImage extends StatelessWidget {
+  const OnBoardingBackgroundImage({
     super.key,
   });
 

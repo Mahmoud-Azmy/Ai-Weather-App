@@ -1,5 +1,5 @@
-import 'package:ai_weather_app/core/utils/app_colors.dart';
-import 'package:ai_weather_app/core/utils/app_styles.dart';
+import 'package:ai_weather_app/core/theme/app_colors.dart';
+import 'package:ai_weather_app/core/theme/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +17,7 @@ class DaysListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: isSelected ? Colors.white : AppColors.textFormFiledColor,
+        color: isSelected ? Colors.white : AppColors.secondaryColor,
         borderRadius: BorderRadius.circular(20.r),
       ),
       width: 55.w,

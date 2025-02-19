@@ -7,6 +7,6 @@ class AppColors {
     const Color.fromARGB(255, 1, 4, 28)
   ];
 
-  static const Color textFormFiledColor = Color(0xff232d48);
+  static const Color secondaryColor = Color(0xff232d48);
   static const Color customButtonColor = Color(0xff014bb4);
 }

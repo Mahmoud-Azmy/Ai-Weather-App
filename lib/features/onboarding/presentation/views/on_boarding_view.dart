@@ -1,23 +1,24 @@
 import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/app_router.dart';
-import 'package:ai_weather_app/core/utils/app_styles.dart';
+import 'package:ai_weather_app/core/theme/app_styles.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_state.dart';
-import 'package:ai_weather_app/features/splash/presentation/widgets/custom_material_button.dart';
-import 'package:ai_weather_app/features/splash/presentation/widgets/splash_background_image.dart';
+import 'package:ai_weather_app/features/onboarding/presentation/widgets/custom_material_button.dart';
+import 'package:ai_weather_app/features/onboarding/presentation/widgets/on_boarding_background_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class SplashView extends StatefulWidget {
-  const SplashView({super.key});
+class OnBoardingView extends StatefulWidget {
+  const OnBoardingView({super.key});
 
   @override
-  State<SplashView> createState() => _SplashViewState();
+  State<OnBoardingView> createState() => _OnBoardingViewState();
 }
 
-class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
+class _OnBoardingViewState extends State<OnBoardingView>
+    with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _animation;
   @override
@@ -29,8 +30,9 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    super.dispose();
+    _controller.stop();
     _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -41,7 +43,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
           backgroundColor: Colors.black,
           body: Stack(
             children: [
-              SplashBackgroundImage(),
+              OnBoardingBackgroundImage(),
               // CustomLinearGradient(),
               Positioned(
                 bottom: 40.h,

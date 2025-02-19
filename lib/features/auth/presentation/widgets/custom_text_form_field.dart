@@ -1,4 +1,4 @@
-import 'package:ai_weather_app/core/utils/app_colors.dart';
+import 'package:ai_weather_app/core/theme/app_colors.dart';
 import 'package:ai_weather_app/features/auth/presentation/controllers/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,7 +54,7 @@ class CustomTextFormField extends StatelessWidget {
                     },
                   )
                 : null,
-            fillColor: AppColors.textFormFiledColor,
+            fillColor: AppColors.secondaryColor,
             filled: true,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30.r),

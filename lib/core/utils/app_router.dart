@@ -9,7 +9,7 @@ import 'package:ai_weather_app/features/home/domain/use_cases/get_weather_data_u
 import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_weather_data_cubit/weather_data_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/views/home_view.dart';
-import 'package:ai_weather_app/features/splash/presentation/views/splash_view.dart';
+import 'package:ai_weather_app/features/onboarding/presentation/views/on_boarding_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,7 +25,7 @@ abstract class AppRouter {
       routes: [
         GoRoute(
           path: splashView,
-          builder: (context, state) => const SplashView(),
+          builder: (context, state) => const OnBoardingView(),
         ),
         GoRoute(
           path: registerView,
