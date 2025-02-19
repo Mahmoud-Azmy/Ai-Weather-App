@@ -26,6 +26,7 @@ class AppConsts {
   static const String humidity = 'Humidity';
   static const String uv = 'UV index';
   static const String wind = 'Wind';
+  static const String loading = 'Fetching Your location...';
 
   static const String forgotPasswordText =
       'Enter your email to reset your password.';

@@ -4,9 +4,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
 class LocationCubit extends Cubit<LocationState> {
-  LocationCubit() : super(LocationState()) {
-    // Automatically fetch location on startup
-  }
+  LocationCubit() : super(LocationState());
 
   Future<void> fetchLocation() async {
     try {

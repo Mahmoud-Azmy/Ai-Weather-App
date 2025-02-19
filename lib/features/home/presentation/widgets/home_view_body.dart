@@ -1,4 +1,5 @@
 import 'package:ai_weather_app/core/theme/app_styles.dart';
+import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_state.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_weather_data_cubit/weather_data_cubit.dart';
@@ -28,8 +29,7 @@ class HomeViewBody extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(height: 300.h),
-                      Text('Fetching Your location...',
-                          style: AppStyles.textStyle18),
+                      Text(AppConsts.loading, style: AppStyles.textStyle18),
                       CircularProgressIndicator(),
                     ],
                   ),
@@ -62,6 +62,7 @@ class HomeViewBody extends StatelessWidget {
                       Text(
                         BlocProvider.of<LocationCubit>(context).state.city,
                         style: AppStyles.textStyle18,
+                        textAlign: TextAlign.center,
                       ),
                       if (state is WeatherDataLoadingState)
                         WeatherDetailsSection(

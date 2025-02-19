@@ -28,7 +28,6 @@ class DaysListView extends StatelessWidget {
               onTap: () {
                 BlocProvider.of<WeatherDataCubit>(context)
                     .setSelectedIndex(index);
-                BlocProvider.of<WeatherDataCubit>(context).changeIndex(index);
                 BlocProvider.of<WeatherDataCubit>(context).getWeatherData(
                     BlocProvider.of<LocationCubit>(context).state.city);
               },
@@ -40,7 +39,7 @@ class DaysListView extends StatelessWidget {
               ),
             );
           },
-          itemCount: 7),
+          itemCount: 10),
     );
   }
 }
