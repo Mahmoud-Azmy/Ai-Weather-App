@@ -79,3 +79,15 @@ class ResetPasswordSuccessState extends AuthState {
   @override
   List<Object> get props => [message];
 }
+
+class GetUserLoadingState extends AuthState {}
+
+class GetUserSuccessState extends AuthState {
+  final UserModel user;
+  GetUserSuccessState(this.user);
+}
+
+class GetUserErrorState extends AuthState {
+  final String message;
+  GetUserErrorState(this.message);
+}

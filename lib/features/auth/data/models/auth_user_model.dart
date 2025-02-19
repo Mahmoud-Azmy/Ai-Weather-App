@@ -8,7 +8,7 @@ class UserModel extends UserEntity {
     return UserModel(
       name: json['name'],
       email: json['email'],
-      password: json['password'],
+      password: json['password']??'',
     );
   }
   Map<String, dynamic> toJson() {

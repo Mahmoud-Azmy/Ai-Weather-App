@@ -1,7 +1,8 @@
-import 'package:ai_weather_app/core/utils/app_colors.dart';
+import 'package:ai_weather_app/core/theme/app_colors.dart';
 import 'package:ai_weather_app/features/auth/presentation/controllers/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -36,11 +37,11 @@ class CustomTextFormField extends StatelessWidget {
           validator: validator,
           decoration: InputDecoration(
             prefixIcon: Padding(
-              padding: const EdgeInsets.only(
-                  top: 18, bottom: 18, left: 20, right: 8),
+              padding: EdgeInsets.only(
+                  top: 18.h, bottom: 18.h, left: 20.w, right: 8.w),
               child: Icon(
                 icon,
-                size: 30,
+                size: 30.sp,
               ),
             ),
             suffixIcon: isPassword
@@ -53,18 +54,18 @@ class CustomTextFormField extends StatelessWidget {
                     },
                   )
                 : null,
-            fillColor: AppColors.textFormFiledColor,
+            fillColor: AppColors.secondaryColor,
             filled: true,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(30.r),
               borderSide: BorderSide(width: 0),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(30.r),
               borderSide: BorderSide(width: 0),
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(30.r),
               borderSide: BorderSide(width: 0),
             ),
           ),

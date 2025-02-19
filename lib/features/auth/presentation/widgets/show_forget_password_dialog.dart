@@ -1,14 +1,16 @@
 import 'package:ai_weather_app/core/functions/show_snack_bar.dart';
-import 'package:ai_weather_app/core/utils/app_colors.dart';
+import 'package:ai_weather_app/core/theme/app_colors.dart';
 import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/service_locator.dart';
 import 'package:ai_weather_app/features/auth/domain/entities/user_entity.dart';
+import 'package:ai_weather_app/features/auth/domain/repos/base_auth_user_repo.dart';
 import 'package:ai_weather_app/features/auth/domain/usecases/login_user_use_case.dart';
 import 'package:ai_weather_app/features/auth/domain/usecases/reset_user_password.dart';
 import 'package:ai_weather_app/features/auth/domain/usecases/sign_up_user_use_case.dart';
 import 'package:ai_weather_app/features/auth/presentation/controllers/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void showForgotPasswordDialog(BuildContext context) {
   final emailController = TextEditingController();
@@ -21,6 +23,7 @@ void showForgotPasswordDialog(BuildContext context) {
           sl<LoginUserUseCase>(),
           sl<SignUpUserUseCase>(),
           sl<ResetUserPasswordUseCase>(),
+          sl<BaseAuthUserRepo>(),
         ),
         child: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {
@@ -38,18 +41,18 @@ void showForgotPasswordDialog(BuildContext context) {
           },
           builder: (innerContext, state) {
             return AlertDialog(
-              backgroundColor: AppColors.authBackgroundColor[0],
+              backgroundColor: AppColors.scaffoldBackgroundColor[0],
               title: const Text(AppConsts.forgotPassword),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text(AppConsts.forgotPasswordText),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   TextField(
                     controller: emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16.r),
                       ),
                       labelText: AppConsts.emailText,
                     ),
@@ -82,8 +85,8 @@ void showForgotPasswordDialog(BuildContext context) {
                   },
                   child: state is ResetPasswordLoadingState
                       ? SizedBox(
-                          height: 30,
-                          width: 30,
+                          height: 30.h,
+                          width: 30.w,
                           child: const CircularProgressIndicator(
                             color: Colors.white,
                           ),

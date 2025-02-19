@@ -85,5 +85,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'ai-weather-app-ba636.firebasestorage.app',
     measurementId: 'G-002F95PKCV',
   );
-
 }

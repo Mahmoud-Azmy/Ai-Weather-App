@@ -1,4 +1,4 @@
-import 'package:ai_weather_app/core/utils/app_colors.dart';
+import 'package:ai_weather_app/core/theme/app_colors.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/register_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class RegisterView extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: AppColors.authBackgroundColor,
+            colors: AppColors.scaffoldBackgroundColor,
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

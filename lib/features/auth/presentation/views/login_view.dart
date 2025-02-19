@@ -1,4 +1,4 @@
-import 'package:ai_weather_app/core/utils/app_colors.dart';
+import 'package:ai_weather_app/core/theme/app_colors.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/login_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -8,16 +8,16 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Container(
+      body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: AppColors.authBackgroundColor,
+            colors: AppColors.scaffoldBackgroundColor,
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
         ),
-        child:LoginViewBody() ,
-      ) ,
+        child: LoginViewBody(),
+      ),
     );
   }
 }

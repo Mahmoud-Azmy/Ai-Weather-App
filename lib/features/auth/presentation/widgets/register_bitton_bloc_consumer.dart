@@ -1,7 +1,7 @@
 import 'package:ai_weather_app/core/functions/show_snack_bar.dart';
 import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/app_router.dart';
-import 'package:ai_weather_app/core/utils/app_styles.dart';
+import 'package:ai_weather_app/core/theme/app_styles.dart';
 import 'package:ai_weather_app/features/auth/domain/entities/user_entity.dart';
 import 'package:ai_weather_app/features/auth/presentation/controllers/cubit/auth_cubit.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_button.dart';
@@ -62,5 +62,4 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
       },
     );
   }
-
 }

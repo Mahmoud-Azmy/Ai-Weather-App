@@ -1,4 +1,4 @@
-import 'package:ai_weather_app/core/utils/app_styles.dart';
+import 'package:ai_weather_app/core/theme/app_styles.dart';
 import 'package:flutter/material.dart';
 
 ScaffoldFeatureController<SnackBar, SnackBarClosedReason> authSnackBar(
@@ -24,7 +24,7 @@ ScaffoldFeatureController<SnackBar, SnackBarClosedReason> authSnackBar(
       duration: const Duration(seconds: 4),
       backgroundColor: color,
       margin: EdgeInsets.all(24),
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       behavior: SnackBarBehavior.floating,
     ),
   );

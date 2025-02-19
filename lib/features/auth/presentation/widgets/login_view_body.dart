@@ -1,5 +1,5 @@
 import 'package:ai_weather_app/core/utils/app_consts.dart';
-import 'package:ai_weather_app/core/utils/app_styles.dart';
+import 'package:ai_weather_app/core/theme/app_styles.dart';
 import 'package:ai_weather_app/core/utils/validators.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_button.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_field_type.dart';
@@ -7,6 +7,7 @@ import 'package:ai_weather_app/features/auth/presentation/widgets/custom_text_fo
 import 'package:ai_weather_app/features/auth/presentation/widgets/login_button_bloc_consumer.dart';
 import 'package:ai_weather_app/features/auth/presentation/widgets/show_forget_password_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginViewBody extends StatefulWidget {
@@ -48,7 +49,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   style: AppStyles.textStyle14.copyWith(color: Colors.white54),
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 40.h,
                 ),
                 CustomTextFormFieldType(
                   text: AppConsts.emailText,
@@ -84,7 +85,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 20.h,
                 ),
                 LoginButtonBlocConsumer(
                     formKey: _formKey,
