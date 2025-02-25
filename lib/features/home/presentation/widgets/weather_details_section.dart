@@ -1,8 +1,10 @@
-import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/theme/app_styles.dart';
+import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/features/home/domain/entities/weather_entity.dart';
+import 'package:ai_weather_app/features/home/presentation/controllers/get_weather_data_cubit/weather_data_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/weather_details.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -50,6 +52,17 @@ class WeatherDetailsSection extends StatelessWidget {
               weatherDetail(AppConsts.sunrise, weatherEntity?.sunrise ?? ''),
               weatherDetail(AppConsts.sunset, weatherEntity?.sunset ?? ''),
             ],
+          ),
+          SizedBox(height: 30.h),
+          TextButton(
+            onPressed: () {
+              if (weatherEntity != null) {
+                context
+                    .read<WeatherDataCubit>()
+                    .getTennisPredictionData(weatherEntity!);
+              }
+            },
+            child: Text('Get Predictions'),
           ),
           SizedBox(height: 50.h),
         ],

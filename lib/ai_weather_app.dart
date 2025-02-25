@@ -15,16 +15,13 @@ class AiWeatherApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: BlocProvider(
-        create: (context) => LocationCubit()..fetchLocation(),
-        child: MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          title: AppConsts.appName,
-          theme: ThemeData.dark().copyWith(
-            scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor[1],
-          ),
-          routerConfig: AppRouter.router(initialRoute),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        title: AppConsts.appName,
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor[1],
         ),
+        routerConfig: AppRouter.router(initialRoute),
       ),
     );
   }

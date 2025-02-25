@@ -35,7 +35,7 @@ class CustomDrawer extends StatelessWidget {
               onPressed: () {
                 sl<SharedPreferences>().remove(AppConsts.kToken);
                 sl<SharedPreferences>().remove('userName');
-                GoRouter.of(context).go(AppRouter.splashView);
+                GoRouter.of(context).go(AppRouter.onBoarding);
               },
             ),
           ],

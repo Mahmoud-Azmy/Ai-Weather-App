@@ -1,4 +1,5 @@
 import 'package:ai_weather_app/features/home/domain/entities/weather_entity.dart';
+import 'package:ai_weather_app/features/home/domain/use_cases/get_tennis_prediction_use_case.dart';
 import 'package:ai_weather_app/features/home/domain/use_cases/get_weather_data_use_case.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -6,8 +7,10 @@ import 'package:equatable/equatable.dart';
 part 'weather_data_state.dart';
 
 class WeatherDataCubit extends Cubit<WeatherDataState> {
-  WeatherDataCubit(this.getWeatherDataUseCas) : super(WeatherDataInitial());
+  WeatherDataCubit(this.getWeatherDataUseCas, this.getTennisPredictionUseCase)
+      : super(WeatherDataInitial());
   final GetWeatherDataUseCase getWeatherDataUseCas;
+  final GetTennisPredictionUseCase getTennisPredictionUseCase;
   bool isLoading = false;
 
   int selectedIndex = 0;
@@ -27,6 +30,22 @@ class WeatherDataCubit extends Cubit<WeatherDataState> {
       },
     );
     isLoading = false;
+  }
+
+  Future<void> getTennisPredictionData(WeatherEntity weather) async {
+    var result = await getTennisPredictionUseCase.call(weather);
+    result.fold(
+      (failure) {
+        emit(
+          TennisPredictionErrorState(message: failure.errorMessage),
+        );
+      },
+      (prediction) {
+        emit(
+          TennisPredictionSuccessState(prediction: prediction),
+        );
+      },
+    );
   }
 
   void setSelectedIndex(int index) {
