@@ -4,6 +4,8 @@ import 'package:ai_weather_app/features/home/domain/entities/weather_entity.dart
 
 abstract class WeatherBaseRemoteDataSource {
   Future<List<WeatherEntity>> getWeatherData({required String city});
+
+  Future<int> predictTennisPlay(WeatherEntity weather);
 }
 
 class WeatherRemoteDataSourceImpl extends WeatherBaseRemoteDataSource {
@@ -23,5 +25,13 @@ class WeatherRemoteDataSourceImpl extends WeatherBaseRemoteDataSource {
       weatherList.add(WeatherModel.fromJson(item));
     }
     return weatherList;
+  }
+
+  @override
+  Future<int> predictTennisPlay(WeatherEntity weather) async {
+    var features = weather.toTennisModelInput();
+
+    var prediction = await apiService.getPrediction(features);
+    return prediction;
   }
 }

@@ -5,4 +5,5 @@ import 'package:dartz/dartz.dart';
 abstract class BaseWeatherRepo {
   Future<Either<Failure, List<WeatherEntity>>> getWeatherData(
       {required String city});
+  Future<Either<Failure, int>> predictTennisPlay(WeatherEntity weather);
 }

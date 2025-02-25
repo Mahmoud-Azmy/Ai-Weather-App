@@ -27,4 +27,24 @@ class WeatherEntity {
       required this.sunset,
       required this.uv,
       required this.responseDate});
+
+  List<int> toTennisModelInput() {
+    // Logic to convert weather data to binary values
+    int outlookIsRainy = description.toLowerCase().contains('rain') ? 1 : 0;
+    int outlookIsSunny = description.toLowerCase().contains('sunny') ? 1 : 0;
+    int temperatureIsHot =
+        temp > 25.0 ? 1 : 0; // Example threshold for "hot" (25°C)
+    int temperatureIsMild =
+        temp >= 15.0 && temp <= 25.0 ? 1 : 0; // Example range for "mild"
+    int humidityIsNormal =
+        humidity <= 60.0 ? 1 : 0; // Example threshold for "normal" humidity
+
+    return [
+      outlookIsRainy,
+      outlookIsSunny,
+      temperatureIsHot,
+      temperatureIsMild,
+      humidityIsNormal,
+    ];
+  }
 }

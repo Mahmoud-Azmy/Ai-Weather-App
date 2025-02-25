@@ -28,4 +28,23 @@ class WeatherRepoImpl implements BaseWeatherRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, int>> predictTennisPlay(WeatherEntity weather) async {
+    try {
+      var result = await remoteDataSource.predictTennisPlay(weather);
+      return Right(result);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(
+          ServerFailure.fromDioError(e),
+        );
+      }
+      return Left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
+  }
 }

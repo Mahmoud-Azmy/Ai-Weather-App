@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 import '../utils/app_consts.dart';
@@ -10,6 +12,19 @@ class ApiService {
         '${AppConsts.baseURL}key=${AppConsts.apiKey}&q=$endPoint&days=10&aqi=no&alerts=no');
     var data = response.data;
     return data;
+  }
+
+  Future<int> getPrediction(List<int> features) async {
+    final response = await _dio.post(
+      AppConsts.aiModelBaseURL,
+      options: Options(
+        headers: {'Content-Type': 'application/json'},
+      ),
+      data: json.encode({'features': features}),
+    );
+
+    final prediction = response.data['prediction'];
+    return prediction[0];
   }
 }
 
