@@ -28,6 +28,8 @@ class AppConsts {
   static const String uv = 'UV index';
   static const String wind = 'Wind';
   static const String loading = 'Fetching Your location...';
+  static const String canNotPlay = 'You can not play Tennis today';
+  static const String canPlay = 'You can play Tennis today';
 
   static const String forgotPasswordText =
       'Enter your email to reset your password.';

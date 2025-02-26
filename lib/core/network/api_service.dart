@@ -14,7 +14,7 @@ class ApiService {
     return data;
   }
 
-  Future<int> getPrediction(List<int> features) async {
+  Future<int> post(List<int> features) async {
     final response = await _dio.post(
       AppConsts.aiModelBaseURL,
       options: Options(

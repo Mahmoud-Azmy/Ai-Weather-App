@@ -25,6 +25,8 @@ final class WeatherDataErrorState extends WeatherDataState {
   const WeatherDataErrorState({required this.message});
 }
 
+class TennisPredictionLoadingState extends WeatherDataState {}
+
 class TennisPredictionSuccessState extends WeatherDataState {
   final int prediction;
 

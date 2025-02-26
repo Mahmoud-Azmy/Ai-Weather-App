@@ -12,6 +12,7 @@ class WeatherDataCubit extends Cubit<WeatherDataState> {
   final GetWeatherDataUseCase getWeatherDataUseCas;
   final GetTennisPredictionUseCase getTennisPredictionUseCase;
   bool isLoading = false;
+  List weatherList = [];
 
   int selectedIndex = 0;
   Future<void> getWeatherData(String city) async {
@@ -27,12 +28,14 @@ class WeatherDataCubit extends Cubit<WeatherDataState> {
         emit(
           WeatherDataLoadedState(weatherList: weatherData),
         );
+        weatherList = weatherData;
       },
     );
     isLoading = false;
   }
 
   Future<void> getTennisPredictionData(WeatherEntity weather) async {
+    emit(TennisPredictionLoadingState());
     var result = await getTennisPredictionUseCase.call(weather);
     result.fold(
       (failure) {

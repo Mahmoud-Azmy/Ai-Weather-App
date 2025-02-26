@@ -3,6 +3,7 @@ import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/utils/service_locator.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_weather_data_cubit/weather_data_cubit.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/days_list_view.dart';
+import 'package:ai_weather_app/features/home/presentation/widgets/get_prediction_bloc_listener.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/home_view_appbar.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/weather_details_section.dart';
 import 'package:flutter/material.dart';
@@ -45,17 +46,20 @@ class HomeViewBody extends StatelessWidget {
                     WeatherDetailsSection(
                       isLoading: true,
                     ),
-                  if (state is WeatherDataLoadedState)
+                  if (context.read<WeatherDataCubit>().weatherList.isNotEmpty)
                     WeatherDetailsSection(
-                      weatherEntity: state.weatherList[
-                          BlocProvider.of<WeatherDataCubit>(context)
-                              .selectedIndex],
+                      weatherEntity:
+                          context.read<WeatherDataCubit>().weatherList[
+                              context.read<WeatherDataCubit>().selectedIndex],
                       isLoading: false,
                     ),
                   if (state is WeatherDataErrorState)
                     Center(
                       child: Text(state.message),
                     ),
+                  SizedBox(height: 30.h),
+                  GetPredictionBlocListener(),
+                  SizedBox(height: 50.h),
                 ],
               );
             },

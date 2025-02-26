@@ -30,8 +30,7 @@ class WeatherRemoteDataSourceImpl extends WeatherBaseRemoteDataSource {
   @override
   Future<int> predictTennisPlay(WeatherEntity weather) async {
     var features = weather.toTennisModelInput();
-
-    var prediction = await apiService.getPrediction(features);
+    var prediction = await apiService.post(features);
     return prediction;
   }
 }
