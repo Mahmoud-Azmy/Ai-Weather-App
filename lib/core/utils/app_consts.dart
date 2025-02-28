@@ -1,6 +1,7 @@
 class AppConsts {
   static const String kToken = 'token';
   static const String baseURL = 'http://api.weatherapi.com/v1/forecast.json?';
+  static const String aiModelBaseURL = 'http://192.168.0.170:5001/predict';
   static const String apiKey = 'eb32de73f3994179a9b53834251602';
   static const String kPilatExtended = 'Pilat Extended';
   static const String appName = 'AI Weather App';
@@ -27,6 +28,8 @@ class AppConsts {
   static const String uv = 'UV index';
   static const String wind = 'Wind';
   static const String loading = 'Fetching Your location...';
+  static const String canNotPlay = 'You can not play Tennis today';
+  static const String canPlay = 'You can play Tennis today';
 
   static const String forgotPasswordText =
       'Enter your email to reset your password.';
@@ -34,4 +37,9 @@ class AppConsts {
       'create an acount to know the weather status';
   static const String successMessageResetPassword =
       'Password reset email sent. Check your inbox.';
+
+  static const String kCity = 'city';
+  static const String kCountry = 'country';
+  static const String kLat = 'lat';
+  static const String kLong = 'long';
 }

@@ -8,6 +8,7 @@ import 'package:ai_weather_app/features/auth/domain/usecases/sign_up_user_use_ca
 import 'package:ai_weather_app/features/home/data/repos/weather_repo_impl.dart';
 import 'package:ai_weather_app/features/home/data/sources/remote_data_source.dart';
 import 'package:ai_weather_app/features/home/domain/repos/base_weather_repo.dart';
+import 'package:ai_weather_app/features/home/domain/use_cases/get_tennis_prediction_use_case.dart';
 import 'package:ai_weather_app/features/home/domain/use_cases/get_weather_data_use_case.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
@@ -36,6 +37,9 @@ Future<void> setupLocator() async {
       ));
   sl.registerLazySingleton<GetWeatherDataUseCase>(
     () => GetWeatherDataUseCase(sl.get<BaseWeatherRepo>()),
+  );
+  sl.registerLazySingleton<GetTennisPredictionUseCase>(
+    () => GetTennisPredictionUseCase(sl.get<BaseWeatherRepo>()),
   );
   sl.registerLazySingleton<RemoteDataSource>(
       () => RemoteDataSourceImpl(sl<FirebaseAuth>(), sl<FirebaseFirestore>()));

@@ -1,5 +1,5 @@
-import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/core/theme/app_styles.dart';
+import 'package:ai_weather_app/core/utils/app_consts.dart';
 import 'package:ai_weather_app/features/home/domain/entities/weather_entity.dart';
 import 'package:ai_weather_app/features/home/presentation/widgets/weather_details.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,6 @@ class WeatherDetailsSection extends StatelessWidget {
               weatherDetail(AppConsts.sunset, weatherEntity?.sunset ?? ''),
             ],
           ),
-          SizedBox(height: 50.h),
         ],
       ),
     );

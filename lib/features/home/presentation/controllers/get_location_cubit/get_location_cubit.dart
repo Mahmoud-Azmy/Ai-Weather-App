@@ -1,7 +1,10 @@
+import 'package:ai_weather_app/core/utils/app_consts.dart';
+import 'package:ai_weather_app/core/utils/service_locator.dart';
 import 'package:ai_weather_app/features/home/presentation/controllers/get_location_cubit/get_location_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LocationCubit extends Cubit<LocationState> {
   LocationCubit() : super(LocationState());
@@ -41,6 +44,16 @@ class LocationCubit extends Cubit<LocationState> {
 
       if (placemarks.isNotEmpty) {
         Placemark place = placemarks[0];
+
+        await sl<SharedPreferences>()
+            .setString(AppConsts.kCity, place.locality ?? "");
+        await sl<SharedPreferences>()
+            .setString(AppConsts.kCountry, place.country ?? "");
+        await sl<SharedPreferences>()
+            .setString(AppConsts.kLat, position.latitude.toString());
+        await sl<SharedPreferences>()
+            .setString(AppConsts.kLong, position.longitude.toString());
+
         emit(state.copyWith(
           city: place.locality ?? "Unknown City",
           country: place.country ?? "Unknown Country",

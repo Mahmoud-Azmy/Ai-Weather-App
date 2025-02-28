@@ -24,3 +24,23 @@ final class WeatherDataErrorState extends WeatherDataState {
   final String message;
   const WeatherDataErrorState({required this.message});
 }
+
+class TennisPredictionLoadingState extends WeatherDataState {}
+
+class TennisPredictionSuccessState extends WeatherDataState {
+  final int prediction;
+
+  const TennisPredictionSuccessState({required this.prediction});
+
+  @override
+  List<Object> get props => [prediction];
+}
+
+class TennisPredictionErrorState extends WeatherDataState {
+  final String message;
+
+  const TennisPredictionErrorState({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}
