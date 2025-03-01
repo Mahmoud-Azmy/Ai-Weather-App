@@ -9,9 +9,14 @@ sealed class WeatherDataState extends Equatable {
 
 final class WeatherDataInitial extends WeatherDataState {}
 
-final class ChangeIndexState extends WeatherDataState {}
+final class SetIndexState extends WeatherDataState {
+  final int selectedIndex;
 
-final class SetIndexState extends WeatherDataState {}
+  const SetIndexState({required this.selectedIndex});
+
+  @override
+  List<Object> get props => [selectedIndex];
+}
 
 final class WeatherDataLoadingState extends WeatherDataState {}
 

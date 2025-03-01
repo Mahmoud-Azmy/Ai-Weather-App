@@ -19,12 +19,12 @@ class WeatherDetailsSection extends StatelessWidget {
         children: [
           SizedBox(height: 10.h),
           Text(
-            weatherEntity?.responseDate ?? '',
+            '${weatherEntity?.responseDate}',
             style: AppStyles.textStyle12.copyWith(color: Colors.grey),
           ),
           SizedBox(height: 10.h),
           Text(
-            "${weatherEntity?.temp} C°",
+            '${weatherEntity?.temp} C°',
             style: AppStyles.textStyle50,
           ),
           // SizedBox(height: 10.h),
