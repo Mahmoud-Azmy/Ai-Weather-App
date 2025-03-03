@@ -18,7 +18,7 @@ AI-Weather-App is a Flutter-based mobile application that provides real-time wea
 
 
   
-## - 🔑 **User Authentication**  Task 
+
 
 ## 🎥 Authentication Demo
 
