@@ -38,7 +38,7 @@ class DaysListView extends StatelessWidget {
                 ),
               );
             },
-            itemCount: 10,
+            itemCount: 3,
           ),
         );
       },
